@@ -22,7 +22,7 @@
     </nav>
 
     <div class="image-container">
-        <img src="images\logo.png" alt="" class="home-image">
+        <img src="images/logo.png" alt="" class="home-image">
     </div>
 
     <div class="button-group">
@@ -36,7 +36,66 @@
         <div id="progress-bar" class="progress-bar"></div>
     </div>
 
+    <!-- Texto que alterna entre as frases -->
+    <div id="loading-text" class="loading-text">...Carregando</div>
+
+    <div class="image-div">
+        <img src="images/div.png" alt="" class="div-image">
+        <span class="overlay-text">FALTAM</span>
+        <div class="countdown-container">
+            <div class="time-box">
+                <span id="days" class="time-value">00</span>
+                <span class="time-label">DIAS</span>
+            </div>
+            <div class="time-box">
+                <span id="hours" class="time-value">00</span>
+                <span class="time-label">HORAS</span>
+            </div>
+            <div class="time-box">
+                <span id="minutes" class="time-value">00</span>
+                <span class="time-label">MINUTOS</span>
+            </div>
+            <div class="time-box">
+                <span id="seconds" class="time-value">00</span>
+                <span class="time-label">SEGUNDOS</span>
+            </div>
+
+        </div>
+        <span class="overlay-text2">PARA O SHOW</span>
+    </div>
+
+
+
     <script>
+        // Data do evento - 1 de abril de 2025, às 19h (horário de Brasília)
+        const targetDate = new Date('2025-04-01T19:00:00-03:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime(); // Data atual
+            const timeLeft = targetDate - now; // Diferença em milissegundos
+
+            if (timeLeft > 0) {
+                // Calcula dias, horas, minutos e segundos
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                // Atualiza os elementos HTML
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                // Quando a contagem terminar
+                document.querySelector('.countdown-container').innerHTML = '<span style="font-size: 24px; color: white;">O SHOW COMEÇOU!</span>';
+            }
+        }
+
+        // Atualiza a cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Chama imediatamente ao carregar
+
         // Datas de início e fim
         const startDate = new Date('2024-11-27'); // 27 de novembro de 2024
         const endDate = new Date('2025-04-01'); // 1 de abril de 2025
@@ -66,6 +125,20 @@
         setInterval(updateProgressBar, 1000);
         // Chamar uma vez ao carregar a página
         updateProgressBar();
+
+        // Frases que alternam no texto de carregamento
+        const phrases = ['...Carregando', 'Stray Kids está chegando...'];
+        let currentPhraseIndex = 0;
+
+        // Função para alternar o texto de carregamento
+        function toggleLoadingText() {
+            const loadingText = document.getElementById('loading-text');
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length; // Alterna entre 0 e 1
+            loadingText.textContent = phrases[currentPhraseIndex];
+        }
+
+        // Alternar o texto a cada 2.5 segundo
+        setInterval(toggleLoadingText, 2500);
     </script>
 </body>
 
