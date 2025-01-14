@@ -12,13 +12,13 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: #141414;
 }
 
 /* Navbar */
 .navbar {
     width: 100%;
-    background-color: black;
+    background-color: #141414;
     padding: 15px 50px;
     position: fixed;
     top: 0;
@@ -54,7 +54,7 @@ body {
     color: #D7D7D7;
 }
 
-/* Ajuste na imagem do logo */
+/* Ajuste na imagem*/
 .image-container {
     width: 45%;
     margin: 80px auto 40px;
@@ -75,7 +75,7 @@ body {
     max-width: 800px; /* Define um limite máximo */
     height: 30px;
     margin: 40px auto;
-    background-color: black;
+    background-color: #141414;
     border-radius: 15px;
     overflow: hidden;
     border: 3px solid #D7D7D7;
@@ -114,7 +114,7 @@ body {
     padding: 10px 20px;
     border: 2px solid #D7D7D7;
     border-radius: 20px;
-    background-color: black;
+    background-color: #141414;
     color: white;
     font-weight: 500;
     font-size: 16px;
@@ -129,7 +129,7 @@ body {
 
 .nav-button.active {
     background-color: #D7D7D7;
-    color: black;
+    color: #141414;
     font-weight: bold;
 }
 
@@ -140,7 +140,7 @@ body {
     font-weight: bold;
     text-align: center;
     margin-top: 0;
-    margin-bottom: 1px;
+    margin-bottom: 25px;
 }
 
 /* Estilo da imagem com o contador sobreposto */
@@ -149,6 +149,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .div-image {
@@ -159,7 +160,7 @@ body {
 /* Texto "FALTAM" */
 .overlay-text {
     position: absolute;
-    top: 20px; /* Ajuste de acordo com o layout */
+    top: 40px; /* Ajuste de acordo com o layout */
     font-size: 28px;
     color: white;
     font-weight: bold;
@@ -169,7 +170,7 @@ body {
 
 .overlay-text2 {
     position: absolute;
-    bottom: 25px; 
+    bottom: 35px; 
     font-size: 28px;
     color: white;
     font-weight: bold;
@@ -182,7 +183,7 @@ body {
     position: absolute;
     top: 80px; /* Ajuste de acordo com a imagem */
     display: flex;
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente transparente */
+    background-color: rgba(165, 165, 165, 0.669); /* Fundo levemente transparente */
     border-radius: 15px;
     padding: 10px 20px;
     gap: 20px;
@@ -195,7 +196,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 
 .time-value {
@@ -213,8 +214,55 @@ body {
     letter-spacing: 1px;
 }
 
+.container-maps-playlist {
+    display: flex; /* Ativa o layout flexbox */
+    align-items: center; /* Centraliza verticalmente os elementos */
+    justify-content: flex-start; /* Alinha os elementos à esquerda */
+    gap: 100px; /* Espaço entre os elementos */
+    margin: 20px; /* Margem externa */
+}
 
+/* Define o tamanho dos iframes */
+.maps iframe{
+    width: 400px; /* Define largura consistente */
+    height: 349px; /* Define altura consistente */
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    border: none; /* Remove borda padrão */
+}
 
+.playlist iframe{
+    width: 400px;
+}
+
+.title {
+    text-align: center; /* Centraliza o texto */
+    color: #D7D7D7; /* Define a cor branca */
+    font-size: 18px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Define o texto como negrito */
+    margin-bottom: 10px; /* Adiciona espaço abaixo do título */
+}
+
+.footer {
+    background-color: #141414; /* Cor de fundo */
+    color: #D7D7D7; /* Cor do texto */
+    text-align: center; /* Centraliza o conteúdo */
+    font-size: 14px; /* Tamanho pequeno para texto */
+    padding: 10px 0; /* Espaçamento interno */
+    width: 100%; /* Largura total */
+    margin-top: 50px; /* Adiciona um pequeno espaço antes do rodapé */
+    z-index: 100; /* Garantir que fique acima de outros elementos */
+}
+
+.footer a {
+    color: #D7D7D7; /* Cor dos links (azul claro) */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold; /* Negrito para destaque */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
