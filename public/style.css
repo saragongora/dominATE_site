@@ -54,20 +54,74 @@ body {
     color: #D7D7D7;
 }
 
-/* Ajuste na imagem*/
+/* Navbar responsiva */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: #A51207;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #141414;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .nav-list.show {
+        display: flex;
+    }
+
+    .nav-link {
+        font-size: 18px;
+    }
+}
+
+/* Responsividade para a imagem */
 .image-container {
-    width: 45%;
-    margin: 80px auto 40px;
+    width: 100%; /* Garante que o contêiner ocupe a largura completa */
+    max-width: 600px; /* Limita a largura máxima da imagem */
+    margin: 100px auto 40px;
     display: flex;
     justify-content: center;
     padding: 0 20px; /* Margem interna para evitar corte em telas pequenas */
 }
 
 .home-image {
-    max-width: 100%; /* A largura máxima não ultrapassa o contêiner */
-    height: auto; /* Mantém a proporção original */
-    object-fit: contain; /* Garante que a imagem não seja cortada */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease; /* Animação suave ao redimensionar */
 }
+
+@media (max-width: 768px) {
+    .image-container {
+        padding: 0 10px; /* Reduz o espaçamento interno em telas menores */
+    }
+}
+
 
 /* Ajuste na barra de progresso */
 .progress-container {
@@ -145,49 +199,53 @@ body {
 
 /* Estilo da imagem com o contador sobreposto */
 .image-div {
-    position: relative; /* Permite posicionar elementos filhos */
+    position: relative;
     display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
     margin-bottom: 20px;
+    overflow: hidden;
+    width: 100%; /* Ocupa toda a largura da tela */
+    height: auto; /* Altura baseada no conteúdo interno */
+    padding: 15px 0; /* Reduz o espaçamento vertical */
 }
 
 .div-image {
-    width: 100%; /* Ajusta a imagem ao tamanho da div */
-    height: auto;
+    position: absolute; /* A imagem ficará como plano de fundo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta as laterais para preencher a área */
+    object-position: center;
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
 }
 
-/* Texto "FALTAM" */
-.overlay-text {
-    position: absolute;
-    top: 40px; /* Ajuste de acordo com o layout */
-    font-size: 28px;
+/* Textos "FALTAM" e "PARA O SHOW" */
+.overlay-text, .overlay-text2 {
+    font-size: 20px; /* Diminui o tamanho da fonte */
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.overlay-text2 {
-    position: absolute;
-    bottom: 35px; 
-    font-size: 28px;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px; /* Reduz o espaçamento entre as letras */
+    text-align: center;
+    margin: 8px 0; /* Reduz o espaçamento entre os textos e o countdown */
 }
 
 /* Contêiner do contador */
 .countdown-container {
-    position: absolute;
-    top: 80px; /* Ajuste de acordo com a imagem */
     display: flex;
-    background-color: rgba(165, 165, 165, 0.669); /* Fundo levemente transparente */
-    border-radius: 15px;
-    padding: 10px 20px;
-    gap: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    background-color: rgba(165, 165, 165, 0.8); /* Fundo semi-transparente para destaque */
+    border-radius: 10px; /* Reduz o arredondamento */
+    padding: 10px 15px; /* Reduz o espaçamento interno */
+    gap: 10px; /* Reduz o espaçamento entre os blocos */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+    max-width: 500px; /* Reduz a largura máxima do contador */
+    width: 90%; /* Ocupa 90% da largura disponível */
+    box-sizing: border-box;
 }
 
 .time-box {
@@ -196,23 +254,56 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 5px;
+    padding: 8px; /* Reduz o espaço interno */
+    flex: 1;
 }
 
 .time-value {
-    font-size: 36px; /* Tamanho grande para os números */
+    font-size: 24px; /* Diminui o tamanho dos números */
     font-weight: bold;
     color: white;
 }
 
 .time-label {
-    font-size: 14px;
+    font-size: 12px; /* Diminui o tamanho dos textos das labels */
     color: white;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 4px; /* Reduz o espaçamento acima das labels */
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1px; /* Reduz o espaçamento entre letras */
 }
+
+/* Estilos para telas menores (até 576px) */
+@media (max-width: 576px) {
+    .image-div {
+        padding: 8px 0; /* Reduz ainda mais o espaçamento vertical */
+    }
+
+    .overlay-text, .overlay-text2 {
+        font-size: 16px; /* Diminui o tamanho do texto em celulares */
+        margin: 5px 0; /* Reduz o espaçamento entre os textos */
+    }
+
+    .countdown-container {
+        padding: 8px; /* Reduz o padding interno */
+        gap: 5px; /* Espaçamento menor entre os blocos */
+        max-width: 300px; /* Largura máxima menor */
+    }
+
+    .time-value {
+        font-size: 18px; /* Diminui o tamanho dos números em celulares */
+    }
+
+    .time-label {
+        font-size: 10px; /* Diminui o tamanho dos textos das labels em celulares */
+    }
+
+    .time-box {
+        padding: 5px; /* Reduz o espaço interno nos blocos */
+    }
+}
+
+
 
 .container-maps-playlist {
     display: flex; /* Ativa o layout flexbox */
@@ -220,10 +311,11 @@ body {
     justify-content: flex-start; /* Alinha os elementos à esquerda */
     gap: 100px; /* Espaço entre os elementos */
     margin: 20px; /* Margem externa */
+    flex-wrap: wrap; /* Permite que os itens "quebrem" para a próxima linha */
 }
 
 /* Define o tamanho dos iframes */
-.maps iframe{
+.maps iframe {
     width: 400px; /* Define largura consistente */
     height: 349px; /* Define altura consistente */
     border-radius: 15px; /* Bordas arredondadas */
@@ -231,10 +323,11 @@ body {
     border: none; /* Remove borda padrão */
 }
 
-.playlist iframe{
+.playlist iframe {
     width: 400px;
 }
 
+/* Título */
 .title {
     text-align: center; /* Centraliza o texto */
     color: #D7D7D7; /* Define a cor branca */
@@ -242,6 +335,21 @@ body {
     font-weight: bold; /* Define o texto como negrito */
     margin-bottom: 10px; /* Adiciona espaço abaixo do título */
 }
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .container-maps-playlist {
+        flex-direction: column; /* Coloca os elementos em coluna, um embaixo do outro */
+        gap: 20px; /* Diminui o espaço entre os elementos */
+    }
+
+    /* Ajusta os iframes para que ocupem a largura total disponível */
+    .maps iframe, .playlist iframe {
+        width: 100%; /* Torna os iframes responsivos, ocupando a largura total */
+        height: 250px; /* Ajusta a altura proporcional */
+    }
+}
+
 
 .footer {
     background-color: #141414; /* Cor de fundo */
