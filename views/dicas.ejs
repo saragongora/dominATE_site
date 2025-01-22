@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DominATE Tour Brasil - O que levar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <button class="menu-toggle" aria-label="Abrir menu">
+                &#9776; <!-- Ícone de hambúrguer -->
+            </button>
+            <ul class="nav-list">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="https://www.ticketmaster.com.br/event/stray-kids" class="nav-link">Comprar ingresso</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content"> 
+        <div class="circle-btn-container">
+            <button class="circle-btn" title="O que levar" onclick="toggleInfo(1)">1</button>
+            <button class="circle-btn" title="Regras do show" onclick="toggleInfo(2)">2</button>
+            <button class="circle-btn" title="Projetos dos Fãs" onclick="toggleInfo(3)">3</button>
+            <button class="circle-btn" title="Duvidas frequentes" onclick="toggleInfo(4)">4</button>
+            <button class="circle-btn" title="Como comprar ingressos" onclick="toggleInfo(5)">5</button>
+        </div>
+    
+        <div class="info-boxes-container"> 
+            <div id="info-box-1" class="info-box">
+                
+                <div class="show-prep-container">
+                    <div class="text-container">
+                        <p class="title">O QUE LEVAR</p>
+                        <ul class="checklist">
+                            <li><label><input type="checkbox" data-item="Ingressos"> Ingressos</label></li>
+                            <li><label><input type="checkbox" data-item="Documento de identidade"> Documento de identidade</label></li>
+                            <li><label><input type="checkbox" data-item="Dinheiro/Cartão"> Dinheiro/Cartão</label></li>
+                            <li><label><input type="checkbox" data-item="Carregador portátil"> Carregador portátil</label></li>
+                            <li><label><input type="checkbox" data-item="Lanche"> Lanche</label></li>
+                            <li><label><input type="checkbox" data-item="Água"> Água</label></li>
+                            <li><label><input type="checkbox" data-item="Capa de Chuva"> Capa de chuva</label></li>
+                            <li><label><input type="checkbox" data-item="Protetor solar"> Protetor Solar</label></li>
+                        </ul>
+                    </div>
+                    <div class="image-show-container">
+                        <img src="images/bolsa.png" alt="Imagem de bolsa" class="show-image">
+                    </div>
+                </div>
+            
+            </div>
+            <div id="info-box-2" class="info-box">Regras do show</div>
+            <div id="info-box-3" class="info-box">Projetos dos Fãs</div>
+            <div id="info-box-4" class="info-box">Duvidas frequentes</div>
+            <div id="info-box-5" class="info-box">Como comprar ingressos</div>
+        </div>
+    </div>
+    
+   
+    <footer class="footer">
+        <p>
+            Criado por <a href="https://www.linkedin.com/in/sara-gongora-a41aa221a" target="_blank">Sara</a> |
+            <a href="https://github.com/seu-usuario-github" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

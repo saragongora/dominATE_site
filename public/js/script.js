@@ -99,6 +99,66 @@ function toggleLoadingText() {
     loadingText.textContent = phrases[currentPhraseIndex];
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll(".checklist input[type='checkbox']");
+    
+    // Recupera o estado dos checkboxes do localStorage
+    checkboxes.forEach((checkbox) => {
+        const item = checkbox.getAttribute("data-item");
+        const savedState = localStorage.getItem(item);
+
+        if (savedState === "checked") {
+            checkbox.checked = true;
+            checkbox.parentElement.style.textDecoration = "line-through";
+            checkbox.parentElement.style.color = "#8D0801";
+        }
+
+        // Adiciona o evento de mudança para salvar o estado e alterar o estilo
+        checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+                localStorage.setItem(item, "checked");
+                checkbox.parentElement.style.textDecoration = "line-through";
+                checkbox.parentElement.style.color = "#8D0801";
+            } else {
+                localStorage.removeItem(item);
+                checkbox.parentElement.style.textDecoration = "none";
+                checkbox.parentElement.style.color = "#D7D7D7";
+            }
+        });
+    });
+});
+
+function toggleInfo(index) {
+    const buttons = document.querySelectorAll('.circle-btn');
+    const boxes = document.querySelectorAll('.info-box');
+    const container = document.querySelector('.circle-btn-container');
+    const currentButton = buttons[index - 1];
+    const currentBox = document.getElementById(`info-box-${index}`);
+
+    console.log(`Botão ${index} clicado`); // Depuração
+
+    if (currentButton.classList.contains('active')) {
+        console.log(`Fechando info-box-${index}`);
+        currentButton.classList.remove('active');
+        currentBox.classList.remove('active');
+        container.classList.remove('active');
+    } else {
+        console.log(`Abrindo info-box-${index}`);
+        buttons.forEach(btn => btn.classList.remove('active'));
+        boxes.forEach(box => box.classList.remove('active'));
+
+        currentButton.classList.add('active');
+        currentBox.classList.add('active');
+        container.classList.add('active');
+    }
+}
+
+
+
+
+
+
+
 let loadingTextInterval = setInterval(toggleLoadingText, 2500);
 
 updateDisplay();

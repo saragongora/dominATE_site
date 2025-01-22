@@ -24,6 +24,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
+    
 }
 
 .nav-container {
@@ -358,7 +359,6 @@ body {
     font-size: 14px; /* Tamanho pequeno para texto */
     padding: 10px 0; /* Espaçamento interno */
     width: 100%; /* Largura total */
-    margin-top: 50px; /* Adiciona um pequeno espaço antes do rodapé */
     z-index: 100; /* Garantir que fique acima de outros elementos */
 }
 
@@ -393,5 +393,212 @@ body {
 
     .loading-text {
         font-size: 14px;
+    }
+}
+
+
+
+/* Botões circulares */
+.circle-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    min-height: 100vh; /* Centraliza os botões inicialmente */
+    transition: all 0.3s ease; /* Animação suave para a transição */
+    z-index: 900; /* Fica abaixo da navbar */
+}
+
+.circle-btn-container.active {
+    min-height: auto; /* Remove a centralização vertical */
+    position: fixed;
+    top: 60px; /* Espaço para a navbar */
+    left: 0;
+    width: 100%;
+    background-color: #141414; /* Fundo para destacar os botões */
+    padding: 10px 0;
+    z-index: 900;
+}
+
+.circle-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #A51207;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.circle-btn:hover {
+    background-color: #D7D7D7;
+}
+
+.circle-btn.active {
+    background-color: #D7D7D7;
+    color: black;
+}
+
+.info-box {
+    display: none;
+    position: absolute;
+    top: 150px; /* Ajuste para aparecer abaixo dos botões */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.circle-btn-container.active + .info-boxes-container {
+    margin-top: 60px; /* Adiciona um espaço extra para evitar sobreposição */
+}
+
+.info-box.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Responsivo para mobile */
+@media (max-width: 768px) {
+    .info-box {
+        width: 95%;
+        left: 50%; /* Continua centralizada em telas menores */
+        transform: translateX(-50%);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Container principal */
+.show-prep-container {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center;  /* Alinha verticalmente a lista e a imagem */
+    gap: 250px;  /* Aumenta o espaçamento entre a lista e a imagem */
+    margin: 40px auto;
+    padding: 0 5%; /* Mantém uma margem lateral menor */
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Título */
+.text-container .title {
+    text-align: left;
+    color: #D7D7D7;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+/* Lista */
+.checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checklist li {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.checklist label {
+    color: #D7D7D7;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.checklist input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.checklist input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #8D0801;
+}
+
+/* Imagem */
+.image-show-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: auto;
+    margin-top: 40px; /* Aumenta o espaço entre a lista e a imagem */
+    align-self: center;
+}
+
+.image-show-container .show-image {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .show-prep-container {
+        flex-direction: column;
+        align-items: center;  /* Centraliza em telas menores */
+        gap: 30px;  /* Aumenta o espaçamento entre lista e imagem */
+        padding: 0 10%;
+    }
+
+    .text-container .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .checklist li {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .image-show-container {
+        margin-top: 30px; /* Ajusta a margem superior em telas menores */
+    }
+
+    .image-show-container .show-image {
+        max-width: 150px;
     }
 }

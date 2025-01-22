@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
     res.render('home'); // Renderiza o arquivo home.ejs
 });
 
-app.get('/oque-levar', (req, res) => {
-    res.render('oque_levar'); // Renderiza o arquivo oque_levar.ejs
+app.get('/dicas', (req, res) => {
+    res.render('dicas'); // Renderiza o arquivo oque_levar.ejs
 });
 
 
