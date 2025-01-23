@@ -15,6 +15,10 @@ body {
     background-color: #141414;
 }
 
+.main-content {
+    flex: 1; /* Faz o conteúdo expandir e empurrar o footer para baixo */
+}
+
 /* Navbar */
 .navbar {
     width: 100%;
@@ -305,7 +309,6 @@ body {
 }
 
 
-
 .container-maps-playlist {
     display: flex; /* Ativa o layout flexbox */
     align-items: center; /* Centraliza verticalmente os elementos */
@@ -360,6 +363,8 @@ body {
     padding: 10px 0; /* Espaçamento interno */
     width: 100%; /* Largura total */
     z-index: 100; /* Garantir que fique acima de outros elementos */
+    position: relative;
+    bottom: 0;
 }
 
 .footer a {
@@ -400,24 +405,30 @@ body {
 
 /* Botões circulares */
 .circle-btn-container {
-    display: flex;
+    display: grid;
+    gap: 10px; /* Espaçamento reduzido entre os botões */
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    min-height: 100vh; /* Centraliza os botões inicialmente */
-    transition: all 0.3s ease; /* Animação suave para a transição */
+    grid-template-columns: repeat(5, 1fr); /* Layout padrão com 5 botões lado a lado */
+    height: auto; /* Remove a altura fixa */
+    margin-top: 50vh; /* Centraliza verticalmente com margem */
+    transform: translateY(-50%); /* Ajusta para o centro da tela */
+    transition: all 0.3s ease; /* Animação suave ao mudar o estado */
     z-index: 900; /* Fica abaixo da navbar */
 }
 
+
+/* Quando o contêiner é ativado (modo expandido) */
 .circle-btn-container.active {
-    min-height: auto; /* Remove a centralização vertical */
+    margin-top: 0; /* Remove o espaçamento vertical */
+    transform: none; /* Remove o deslocamento */
+    height: auto; /* Altura conforme o conteúdo */
     position: fixed;
     top: 60px; /* Espaço para a navbar */
     left: 0;
     width: 100%;
     background-color: #141414; /* Fundo para destacar os botões */
     padding: 10px 0;
-    z-index: 900;
 }
 
 .circle-btn {
@@ -451,16 +462,12 @@ body {
     top: 150px; /* Ajuste para aparecer abaixo dos botões */
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
+    background-color: #D7D7D7;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
 
-.circle-btn-container.active + .info-boxes-container {
-    margin-top: 60px; /* Adiciona um espaço extra para evitar sobreposição */
-}
 
 .info-box.active {
     display: flex;
@@ -468,16 +475,66 @@ body {
     align-items: center;
 }
 
+.circle-btn-container.active + .info-boxes-container {
+    margin-top: 60px; /* Adiciona um espaço extra para evitar sobreposição */
+}
 
-
-/* Responsivo para mobile */
 @media (max-width: 768px) {
     .info-box {
-        width: 95%;
-        left: 50%; /* Continua centralizada em telas menores */
-        transform: translateX(-50%);
+        top: 220px;
+        width: 90%; /* Adapta o tamanho da caixa para telas menores */
+       /* margin: 10px auto; Centraliza a caixa e adiciona espaçamento */
+    }
+
+    .circle-btn-container.active + .info-boxes-container {
+        margin-top: 20px; /* Garante espaço suficiente abaixo dos botões */
     }
 }
+
+
+@media (max-width: 768px) {
+    .circle-btn-container {
+        display: grid;
+        gap: 5px; /* Espaçamento menor entre os botões */
+        grid-template-columns: repeat(5, 1fr); /* Define 5 colunas */
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Primeira linha de botões */
+    .circle-btn-container button:nth-child(1) {
+        grid-column: 2 / 3; /* Primeiro botão na segunda coluna */
+    }
+
+    .circle-btn-container button:nth-child(2) {
+        grid-column: 3 / 4; /* Segundo botão na terceira coluna */
+    }
+
+    .circle-btn-container button:nth-child(3) {
+        grid-column: 4 / 5; /* Terceiro botão na quarta coluna */
+    }
+
+    /* Segunda linha de botões */
+    .circle-btn-container button:nth-child(4) {
+        grid-column: 2 / 4; /* Ocupa entre as colunas 2 e 3 */
+        grid-row: 2; /* Força o botão 4 a estar na segunda linha */
+        justify-self: center; /* Centraliza o botão dentro da grade */
+    }
+    
+    .circle-btn-container button:nth-child(5) {
+        grid-column: 3 / 5; /* Ocupa entre as colunas 3 e 4 */
+        grid-row: 2; /* Força o botão 5 a estar na segunda linha */
+        justify-self: center; /* Centraliza o botão dentro da grade */
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
