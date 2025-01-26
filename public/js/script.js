@@ -134,24 +134,47 @@ function toggleInfo(index) {
     const container = document.querySelector('.circle-btn-container');
     const currentButton = buttons[index - 1];
     const currentBox = document.getElementById(`info-box-${index}`);
+    const buttonImage = currentButton.querySelector('.btn-image'); // Seleciona a imagem do botão
+    const imagePaths = [
+        'images/bolsa.png', 'images/regras.png', 'images/projeto.png', 'images/pergunta.png', 'images/ingresso.png'
+    ];
+    const activeImagePaths = [
+        'images/bolsa2.png', 'images/regras2.png', 'images/projeto2.png', 'images/pergunta2.png', 'images/ingresso2.png'
+    ];
 
     console.log(`Botão ${index} clicado`); // Depuração
 
+    // Se o botão já está ativo (foi clicado novamente), desativa ele
     if (currentButton.classList.contains('active')) {
         console.log(`Fechando info-box-${index}`);
         currentButton.classList.remove('active');
         currentBox.classList.remove('active');
         container.classList.remove('active');
+        buttonImage.src = imagePaths[index - 1]; // Restaura a imagem original
     } else {
-        console.log(`Abrindo info-box-${index}`);
-        buttons.forEach(btn => btn.classList.remove('active'));
-        boxes.forEach(box => box.classList.remove('active'));
+        // Primeiro, desativa todos os botões e reverte as imagens
+        buttons.forEach((btn, i) => {
+            btn.classList.remove('active');
+            const btnImage = btn.querySelector('.btn-image');
+            btnImage.src = imagePaths[i]; // Restaura a imagem original
+        });
 
+        // Desativa todas as caixas de informações
+        boxes.forEach(box => box.classList.remove('active'));
+        container.classList.remove('active');
+
+        // Agora ativa o botão e a caixa correspondente
         currentButton.classList.add('active');
         currentBox.classList.add('active');
         container.classList.add('active');
+        buttonImage.src = activeImagePaths[index - 1]; // Aplica a imagem ativa
     }
 }
+
+
+
+
+
 
 
 

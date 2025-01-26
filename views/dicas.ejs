@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DominATE Tour Brasil - O que levar</title>
+    <title>DominATE Tour Brasil - Dicas</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-
 </head>
 
 <body>
@@ -24,26 +23,45 @@
         </div>
     </nav>
 
-    <div class="main-content"> 
-        <div class="circle-btn-container">
-            <button class="circle-btn" title="O que levar" onclick="toggleInfo(1)">1</button>
-            <button class="circle-btn" title="Regras do show" onclick="toggleInfo(2)">2</button>
-            <button class="circle-btn" title="Projetos dos Fãs" onclick="toggleInfo(3)">3</button>
-            <button class="circle-btn" title="Duvidas frequentes" onclick="toggleInfo(4)">4</button>
-            <button class="circle-btn" title="Como comprar ingressos" onclick="toggleInfo(5)">5</button>
-        </div>
+    <div class="circle-btn-container">
+        <button class="circle-btn" onclick="toggleInfo(1)" id="btn-1">
+            <img src="images/bolsa.png" alt="Bolsa" class="btn-image">
+            <span class="tooltip">O que levar</span>
+        </button>
+        <button class="circle-btn" onclick="toggleInfo(2)" id="btn-2">
+            <img src="images/regras.png" alt="Regras" class="btn-image">
+            <span class="tooltip">Regras do show</span>
+        </button>
+        <button class="circle-btn" onclick="toggleInfo(3)" id="btn-3">
+            <img src="images/projeto.png" alt="Projeto" class="btn-image">
+            <span class="tooltip">Projetos dos Fãs</span>
+        </button>
+        <button class="circle-btn" onclick="toggleInfo(4)" id="btn-4">
+            <img src="images/pergunta.png" alt="Pergunta" class="btn-image">
+            <span class="tooltip">Dúvidas frequentes</span>
+        </button>
+        <button class="circle-btn" onclick="toggleInfo(5)" id="btn-5">
+            <img src="images/ingresso.png" alt="Ingresso" class="btn-image">
+            <span class="tooltip">Como comprar ingressos</span>
+        </button>
+    </div>
     
-        <div class="info-boxes-container"> 
+    
+        
+
+        <div class="info-boxes-container">
             <div id="info-box-1" class="info-box">
-                
+
                 <div class="show-prep-container">
                     <div class="text-container">
                         <p class="title">O QUE LEVAR</p>
                         <ul class="checklist">
                             <li><label><input type="checkbox" data-item="Ingressos"> Ingressos</label></li>
-                            <li><label><input type="checkbox" data-item="Documento de identidade"> Documento de identidade</label></li>
+                            <li><label><input type="checkbox" data-item="Documento de identidade"> Documento de
+                                    identidade</label></li>
                             <li><label><input type="checkbox" data-item="Dinheiro/Cartão"> Dinheiro/Cartão</label></li>
-                            <li><label><input type="checkbox" data-item="Carregador portátil"> Carregador portátil</label></li>
+                            <li><label><input type="checkbox" data-item="Carregador portátil"> Carregador
+                                    portátil</label></li>
                             <li><label><input type="checkbox" data-item="Lanche"> Lanche</label></li>
                             <li><label><input type="checkbox" data-item="Água"> Água</label></li>
                             <li><label><input type="checkbox" data-item="Capa de Chuva"> Capa de chuva</label></li>
@@ -54,7 +72,7 @@
                         <img src="images/bolsa.png" alt="Imagem de bolsa" class="show-image">
                     </div>
                 </div>
-            
+
             </div>
             <div id="info-box-2" class="info-box">Regras do show</div>
             <div id="info-box-3" class="info-box">Projetos dos Fãs</div>
@@ -62,7 +80,7 @@
             <div id="info-box-5" class="info-box">Como comprar ingressos</div>
         </div>
     </div>
-    
+
     <footer class="footer">
         <p>
             Criado por <a href="https://www.linkedin.com/in/sara-gongora-a41aa221a" target="_blank">Sara</a> |

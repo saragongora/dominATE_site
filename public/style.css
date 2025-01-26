@@ -17,6 +17,7 @@ body {
 
 .main-content {
     flex: 1; /* Faz o conteúdo expandir e empurrar o footer para baixo */
+    width: 100%; /* Garante que o conteúdo ocupe toda a largura */
 }
 
 /* Navbar */
@@ -308,7 +309,6 @@ body {
     }
 }
 
-
 .container-maps-playlist {
     display: flex; /* Ativa o layout flexbox */
     align-items: center; /* Centraliza verticalmente os elementos */
@@ -354,17 +354,16 @@ body {
     }
 }
 
-
 .footer {
-    background-color: #141414; /* Cor de fundo */
-    color: #D7D7D7; /* Cor do texto */
-    text-align: center; /* Centraliza o conteúdo */
-    font-size: 14px; /* Tamanho pequeno para texto */
-    padding: 10px 0; /* Espaçamento interno */
-    width: 100%; /* Largura total */
-    z-index: 100; /* Garantir que fique acima de outros elementos */
+    background-color: #141414;
+    color: #D7D7D7;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    width: 100%;
     position: relative;
     bottom: 0;
+    margin-top: auto;
 }
 
 .footer a {
@@ -401,8 +400,6 @@ body {
     }
 }
 
-
-
 /* Botões circulares */
 .circle-btn-container {
     display: grid;
@@ -412,23 +409,23 @@ body {
     grid-template-columns: repeat(5, 1fr); /* Layout padrão com 5 botões lado a lado */
     height: auto; /* Remove a altura fixa */
     margin-top: 50vh; /* Centraliza verticalmente com margem */
-    transform: translateY(-50%); /* Ajusta para o centro da tela */
-    transition: all 0.3s ease; /* Animação suave ao mudar o estado */
     z-index: 900; /* Fica abaixo da navbar */
 }
 
-
 /* Quando o contêiner é ativado (modo expandido) */
 .circle-btn-container.active {
-    margin-top: 0; /* Remove o espaçamento vertical */
-    transform: none; /* Remove o deslocamento */
-    height: auto; /* Altura conforme o conteúdo */
+    margin-top: 0;
+    transform: none;
+    height: auto;
     position: fixed;
-    top: 60px; /* Espaço para a navbar */
-    left: 0;
-    width: 100%;
-    background-color: #141414; /* Fundo para destacar os botões */
+    top: 60px;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta para o centro */
+    background-color: #141414;
     padding: 10px 0;
+    gap: 5px; /* Espaçamento ajustado entre os botões */
+    display: flex; /* Garante que os botões fiquem lado a lado */
+    justify-content: center; /* Alinha os botões no centro horizontal */
 }
 
 .circle-btn {
@@ -456,6 +453,40 @@ body {
     color: black;
 }
 
+/* Tooltip ajustado */
+.tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: #D7D7D7; /* Cor de fundo */
+    color: #141414; /* Cor do texto */
+    text-align: center;
+    border-radius: 10px; /* Borda mais arredondada */
+    padding: 10px 15px; /* Tamanho maior */
+    font-size: 14px; /* Texto um pouco maior */
+    white-space: nowrap;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-50px); /* Posição inicial ainda mais alta */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar */
+}
+
+/* Mostra a tooltip ao passar o mouse sobre o botão */
+.circle-btn:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-55px); /* Tooltip sobe mais, ficando bem acima dos botões */
+}
+
+/* Posiciona a tooltip acima do botão */
+.circle-btn {
+    position: relative; /* Necessário para o posicionamento da tooltip */
+}
+
+
+
+
+
 .info-box {
     display: none;
     position: absolute;
@@ -467,7 +498,6 @@ body {
     border-radius: 10px;
     z-index: 1000;
 }
-
 
 .info-box.active {
     display: flex;
@@ -481,7 +511,7 @@ body {
 
 @media (max-width: 768px) {
     .info-box {
-        top: 220px;
+        top: 150px;
         width: 90%; /* Adapta o tamanho da caixa para telas menores */
        /* margin: 10px auto; Centraliza a caixa e adiciona espaçamento */
     }
@@ -490,7 +520,6 @@ body {
         margin-top: 20px; /* Garante espaço suficiente abaixo dos botões */
     }
 }
-
 
 @media (max-width: 768px) {
     .circle-btn-container {
@@ -528,30 +557,35 @@ body {
     }
 }
 
+.circle-btn img.btn-image {
+    width: 80%; /* Ajusta o tamanho da imagem dentro do botão */
+    height: auto; /* Mantém a proporção da imagem */
+    display: block; /* Garante que a imagem se alinhe corretamente */
+    margin: 0 auto; /* Centraliza a imagem no botão */
+    pointer-events: none; /* Impede que o clique interaja com a imagem */
+}
 
+/* Estilo do botão ativo */
+.circle-btn.active img.btn-image {
+    content: url('images/bolsa2.png'); /* Troca a imagem para a versão ativa */
+}
 
+/* Aqui são definidas as imagens para os outros botões quando estão ativos */
+.circle-btn#btn-2.active img.btn-image {
+    content: url('images/regras2.png');
+}
 
+.circle-btn#btn-3.active img.btn-image {
+    content: url('images/projeto2.png');
+}
 
+.circle-btn#btn-4.active img.btn-image {
+    content: url('images/pergunta2.png');
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.circle-btn#btn-5.active img.btn-image {
+    content: url('images/ingresso2.png');
+}
 
 
 
