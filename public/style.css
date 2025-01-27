@@ -414,7 +414,7 @@ body {
 
 /* Quando o contêiner é ativado (modo expandido) */
 .circle-btn-container.active {
-    margin-top: 0;
+    margin-top: 50px;
     transform: none;
     height: auto;
     position: fixed;
@@ -483,14 +483,10 @@ body {
     position: relative; /* Necessário para o posicionamento da tooltip */
 }
 
-
-
-
-
 .info-box {
     display: none;
     position: absolute;
-    top: 150px; /* Ajuste para aparecer abaixo dos botões */
+    top: 200px; /* Ajuste para aparecer abaixo dos botões */
     left: 50%;
     transform: translateX(-50%);
     background-color: #D7D7D7;
@@ -511,7 +507,7 @@ body {
 
 @media (max-width: 768px) {
     .info-box {
-        top: 150px;
+        top: 200px;
         width: 90%; /* Adapta o tamanho da caixa para telas menores */
        /* margin: 10px auto; Centraliza a caixa e adiciona espaçamento */
     }
@@ -557,6 +553,19 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    /* Tooltip do primeiro botão no estado ativo */
+    .circle-btn-container.active .circle-btn:first-child .tooltip {
+        margin-left: 20px; /* Adiciona margem para afastar da borda esquerda */
+    }
+
+    /* Tooltip do último botão no estado ativo */
+    .circle-btn-container.active .circle-btn:last-child .tooltip {
+        margin-right: 120px; /* Adiciona margem para afastar da borda direita */
+    }
+}
+
+
 .circle-btn img.btn-image {
     width: 80%; /* Ajusta o tamanho da imagem dentro do botão */
     height: auto; /* Mantém a proporção da imagem */
@@ -586,6 +595,20 @@ body {
 .circle-btn#btn-5.active img.btn-image {
     content: url('images/ingresso2.png');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
