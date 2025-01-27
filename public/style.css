@@ -13,11 +13,16 @@ body {
     margin: 0;
     padding: 0;
     background-color: #141414;
+    height: 100%;
 }
 
 .main-content {
-    flex: 1; /* Faz o conteúdo expandir e empurrar o footer para baixo */
-    width: 100%; /* Garante que o conteúdo ocupe toda a largura */
+    flex: 1;
+    /* Faz o conteúdo expandir e empurrar o footer para baixo */
+    width: 100%;
+    /* Garante que o conteúdo ocupe toda a largura */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -25,11 +30,11 @@ body {
     width: 100%;
     background-color: #141414;
     padding: 15px 50px;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 1000;
-    
+
 }
 
 .nav-container {
@@ -107,32 +112,39 @@ body {
 
 /* Responsividade para a imagem */
 .image-container {
-    width: 100%; /* Garante que o contêiner ocupe a largura completa */
-    max-width: 600px; /* Limita a largura máxima da imagem */
+    width: 100%;
+    /* Garante que o contêiner ocupe a largura completa */
+    max-width: 600px;
+    /* Limita a largura máxima da imagem */
     margin: 100px auto 40px;
     display: flex;
     justify-content: center;
-    padding: 0 20px; /* Margem interna para evitar corte em telas pequenas */
+    padding: 0 20px;
+    /* Margem interna para evitar corte em telas pequenas */
 }
 
 .home-image {
     max-width: 100%;
     height: auto;
     object-fit: contain;
-    transition: transform 0.3s ease; /* Animação suave ao redimensionar */
+    transition: transform 0.3s ease;
+    /* Animação suave ao redimensionar */
 }
 
 @media (max-width: 768px) {
     .image-container {
-        padding: 0 10px; /* Reduz o espaçamento interno em telas menores */
+        padding: 0 10px;
+        /* Reduz o espaçamento interno em telas menores */
     }
 }
 
 
 /* Ajuste na barra de progresso */
 .progress-container {
-    width: 90%; /* Garante que a barra ocupe quase toda a tela */
-    max-width: 800px; /* Define um limite máximo */
+    width: 90%;
+    /* Garante que a barra ocupe quase toda a tela */
+    max-width: 800px;
+    /* Define um limite máximo */
     height: 30px;
     margin: 40px auto;
     background-color: #141414;
@@ -156,6 +168,7 @@ body {
     from {
         background-position: 0 0;
     }
+
     to {
         background-position: 40px 40px;
     }
@@ -207,50 +220,67 @@ body {
 .image-div {
     position: relative;
     display: flex;
-    flex-direction: column; /* Organiza os itens em coluna */
+    flex-direction: column;
+    /* Organiza os itens em coluna */
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
     overflow: hidden;
-    width: 100%; /* Ocupa toda a largura da tela */
-    height: auto; /* Altura baseada no conteúdo interno */
-    padding: 15px 0; /* Reduz o espaçamento vertical */
+    width: 100%;
+    /* Ocupa toda a largura da tela */
+    height: auto;
+    /* Altura baseada no conteúdo interno */
+    padding: 15px 0;
+    /* Reduz o espaçamento vertical */
 }
 
 .div-image {
-    position: absolute; /* A imagem ficará como plano de fundo */
+    position: absolute;
+    /* A imagem ficará como plano de fundo */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Corta as laterais para preencher a área */
+    object-fit: cover;
+    /* Corta as laterais para preencher a área */
     object-position: center;
-    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+    z-index: -1;
+    /* Coloca a imagem atrás do conteúdo */
 }
 
 /* Textos "FALTAM" e "PARA O SHOW" */
-.overlay-text, .overlay-text2 {
-    font-size: 20px; /* Diminui o tamanho da fonte */
+.overlay-text,
+.overlay-text2 {
+    font-size: 20px;
+    /* Diminui o tamanho da fonte */
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1.5px; /* Reduz o espaçamento entre as letras */
+    letter-spacing: 1.5px;
+    /* Reduz o espaçamento entre as letras */
     text-align: center;
-    margin: 8px 0; /* Reduz o espaçamento entre os textos e o countdown */
+    margin: 8px 0;
+    /* Reduz o espaçamento entre os textos e o countdown */
 }
 
 /* Contêiner do contador */
 .countdown-container {
     display: flex;
     justify-content: center;
-    background-color: rgba(165, 165, 165, 0.8); /* Fundo semi-transparente para destaque */
-    border-radius: 10px; /* Reduz o arredondamento */
-    padding: 10px 15px; /* Reduz o espaçamento interno */
-    gap: 10px; /* Reduz o espaçamento entre os blocos */
+    background-color: rgba(165, 165, 165, 0.8);
+    /* Fundo semi-transparente para destaque */
+    border-radius: 10px;
+    /* Reduz o arredondamento */
+    padding: 10px 15px;
+    /* Reduz o espaçamento interno */
+    gap: 10px;
+    /* Reduz o espaçamento entre os blocos */
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-    max-width: 500px; /* Reduz a largura máxima do contador */
-    width: 90%; /* Ocupa 90% da largura disponível */
+    max-width: 500px;
+    /* Reduz a largura máxima do contador */
+    width: 90%;
+    /* Ocupa 90% da largura disponível */
     box-sizing: border-box;
 }
 
@@ -260,71 +290,97 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 8px; /* Reduz o espaço interno */
+    padding: 8px;
+    /* Reduz o espaço interno */
     flex: 1;
 }
 
 .time-value {
-    font-size: 24px; /* Diminui o tamanho dos números */
+    font-size: 24px;
+    /* Diminui o tamanho dos números */
     font-weight: bold;
     color: white;
 }
 
 .time-label {
-    font-size: 12px; /* Diminui o tamanho dos textos das labels */
+    font-size: 12px;
+    /* Diminui o tamanho dos textos das labels */
     color: white;
     font-weight: bold;
-    margin-top: 4px; /* Reduz o espaçamento acima das labels */
+    margin-top: 4px;
+    /* Reduz o espaçamento acima das labels */
     text-transform: uppercase;
-    letter-spacing: 1px; /* Reduz o espaçamento entre letras */
+    letter-spacing: 1px;
+    /* Reduz o espaçamento entre letras */
 }
 
 /* Estilos para telas menores (até 576px) */
 @media (max-width: 576px) {
     .image-div {
-        padding: 8px 0; /* Reduz ainda mais o espaçamento vertical */
+        padding: 8px 0;
+        /* Reduz ainda mais o espaçamento vertical */
     }
 
-    .overlay-text, .overlay-text2 {
-        font-size: 16px; /* Diminui o tamanho do texto em celulares */
-        margin: 5px 0; /* Reduz o espaçamento entre os textos */
+    .overlay-text,
+    .overlay-text2 {
+        font-size: 16px;
+        /* Diminui o tamanho do texto em celulares */
+        margin: 5px 0;
+        /* Reduz o espaçamento entre os textos */
     }
 
     .countdown-container {
-        padding: 8px; /* Reduz o padding interno */
-        gap: 5px; /* Espaçamento menor entre os blocos */
-        max-width: 300px; /* Largura máxima menor */
+        padding: 8px;
+        /* Reduz o padding interno */
+        gap: 5px;
+        /* Espaçamento menor entre os blocos */
+        max-width: 300px;
+        /* Largura máxima menor */
     }
 
     .time-value {
-        font-size: 18px; /* Diminui o tamanho dos números em celulares */
+        font-size: 18px;
+        /* Diminui o tamanho dos números em celulares */
     }
 
     .time-label {
-        font-size: 10px; /* Diminui o tamanho dos textos das labels em celulares */
+        font-size: 10px;
+        /* Diminui o tamanho dos textos das labels em celulares */
     }
 
     .time-box {
-        padding: 5px; /* Reduz o espaço interno nos blocos */
+        padding: 5px;
+        /* Reduz o espaço interno nos blocos */
     }
 }
 
 .container-maps-playlist {
-    display: flex; /* Ativa o layout flexbox */
-    align-items: center; /* Centraliza verticalmente os elementos */
-    justify-content: flex-start; /* Alinha os elementos à esquerda */
-    gap: 100px; /* Espaço entre os elementos */
-    margin: 20px; /* Margem externa */
-    flex-wrap: wrap; /* Permite que os itens "quebrem" para a próxima linha */
+    display: flex;
+    /* Ativa o layout flexbox */
+    align-items: center;
+    /* Centraliza verticalmente os elementos */
+    justify-content: flex-start;
+    /* Alinha os elementos à esquerda */
+    gap: 100px;
+    /* Espaço entre os elementos */
+    margin: 20px;
+    /* Margem externa */
+    flex-wrap: wrap;
+    /* Permite que os itens "quebrem" para a próxima linha */
 }
 
 /* Define o tamanho dos iframes */
 .maps iframe {
-    width: 400px; /* Define largura consistente */
-    height: 349px; /* Define altura consistente */
-    border-radius: 15px; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
-    border: none; /* Remove borda padrão */
+    width: 400px;
+    /* Define largura consistente */
+    height: 349px;
+    /* Define altura consistente */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Adiciona sombra */
+    border: none;
+    /* Remove borda padrão */
 }
 
 .playlist iframe {
@@ -333,24 +389,34 @@ body {
 
 /* Título */
 .title {
-    text-align: center; /* Centraliza o texto */
-    color: #D7D7D7; /* Define a cor branca */
-    font-size: 18px; /* Define o tamanho da fonte */
-    font-weight: bold; /* Define o texto como negrito */
-    margin-bottom: 10px; /* Adiciona espaço abaixo do título */
+    text-align: center;
+    /* Centraliza o texto */
+    color: #D7D7D7;
+    /* Define a cor branca */
+    font-size: 18px;
+    /* Define o tamanho da fonte */
+    font-weight: bold;
+    /* Define o texto como negrito */
+    margin-bottom: 10px;
+    /* Adiciona espaço abaixo do título */
 }
 
 /* Responsividade para telas pequenas */
 @media (max-width: 768px) {
     .container-maps-playlist {
-        flex-direction: column; /* Coloca os elementos em coluna, um embaixo do outro */
-        gap: 20px; /* Diminui o espaço entre os elementos */
+        flex-direction: column;
+        /* Coloca os elementos em coluna, um embaixo do outro */
+        gap: 20px;
+        /* Diminui o espaço entre os elementos */
     }
 
     /* Ajusta os iframes para que ocupem a largura total disponível */
-    .maps iframe, .playlist iframe {
-        width: 100%; /* Torna os iframes responsivos, ocupando a largura total */
-        height: 250px; /* Ajusta a altura proporcional */
+    .maps iframe,
+    .playlist iframe {
+        width: 100%;
+        /* Torna os iframes responsivos, ocupando a largura total */
+        height: 250px;
+        /* Ajusta a altura proporcional */
     }
 }
 
@@ -361,19 +427,22 @@ body {
     font-size: 14px;
     padding: 10px 0;
     width: 100%;
-    position: relative;
-    bottom: 0;
     margin-top: auto;
+    /* Empurra o footer para o final do flex container */
 }
 
 .footer a {
-    color: #D7D7D7; /* Cor dos links (azul claro) */
-    text-decoration: none; /* Remove o sublinhado dos links */
-    font-weight: bold; /* Negrito para destaque */
+    color: #D7D7D7;
+    /* Cor dos links (azul claro) */
+    text-decoration: none;
+    /* Remove o sublinhado dos links */
+    font-weight: bold;
+    /* Negrito para destaque */
 }
 
 .footer a:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    text-decoration: underline;
+    /* Adiciona sublinhado ao passar o mouse */
 }
 
 /* Responsividade */
@@ -387,7 +456,8 @@ body {
     }
 
     .progress-container {
-        height: 25px; /* Reduz a altura para telas menores */
+        height: 25px;
+        /* Reduz a altura para telas menores */
     }
 
     .nav-button {
@@ -403,29 +473,38 @@ body {
 /* Botões circulares */
 .circle-btn-container {
     display: grid;
-    gap: 10px; /* Espaçamento reduzido entre os botões */
+    gap: 10px;
+    /* Espaçamento reduzido entre os botões */
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(5, 1fr); /* Layout padrão com 5 botões lado a lado */
-    height: auto; /* Remove a altura fixa */
-    margin-top: 50vh; /* Centraliza verticalmente com margem */
-    z-index: 900; /* Fica abaixo da navbar */
+    grid-template-columns: repeat(5, 1fr);
+    /* Layout padrão com 5 botões lado a lado */
+    height: auto;
+    /* Remove a altura fixa */
+    margin-top: 50vh;
+    /* Centraliza verticalmente com margem */
+    z-index: 900;
+    /* Fica abaixo da navbar */
 }
 
 /* Quando o contêiner é ativado (modo expandido) */
 .circle-btn-container.active {
-    margin-top: 50px;
-    transform: none;
+    position: absolute;
+    /* Torna o contêiner fixo para centralização */
+    margin-top: 85px;
     height: auto;
-    position: fixed;
-    top: 60px;
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajusta para o centro */
+    left: 50%;
+    /* Centraliza horizontalmente */
+    transform: translateX(-50%);
+    /* Ajusta para o centro */
     background-color: #141414;
     padding: 10px 0;
-    gap: 5px; /* Espaçamento ajustado entre os botões */
-    display: flex; /* Garante que os botões fiquem lado a lado */
-    justify-content: center; /* Alinha os botões no centro horizontal */
+    gap: 5px;
+    /* Espaçamento ajustado entre os botões */
+    display: flex;
+    /* Garante que os botões fiquem lado a lado */
+    justify-content: center;
+    /* Alinha os botões no centro horizontal */
 }
 
 .circle-btn {
@@ -458,125 +537,194 @@ body {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    background-color: #D7D7D7; /* Cor de fundo */
-    color: #141414; /* Cor do texto */
+    background-color: #D7D7D7;
+    /* Cor de fundo */
+    color: #141414;
+    /* Cor do texto */
     text-align: center;
-    border-radius: 10px; /* Borda mais arredondada */
-    padding: 10px 15px; /* Tamanho maior */
-    font-size: 14px; /* Texto um pouco maior */
+    border-radius: 10px;
+    /* Borda mais arredondada */
+    padding: 10px 15px;
+    /* Tamanho maior */
+    font-size: 14px;
+    /* Texto um pouco maior */
     white-space: nowrap;
     z-index: 1000;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translateY(-50px); /* Posição inicial ainda mais alta */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Leve sombra para destacar */
+    transform: translateY(-50px);
+    /* Posição inicial ainda mais alta */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Leve sombra para destacar */
 }
 
 /* Mostra a tooltip ao passar o mouse sobre o botão */
 .circle-btn:hover .tooltip {
     visibility: visible;
     opacity: 1;
-    transform: translateY(-55px); /* Tooltip sobe mais, ficando bem acima dos botões */
+    transform: translateY(-55px);
+    /* Tooltip sobe mais, ficando bem acima dos botões */
 }
 
 /* Posiciona a tooltip acima do botão */
 .circle-btn {
-    position: relative; /* Necessário para o posicionamento da tooltip */
+    position: relative;
+    /* Necessário para o posicionamento da tooltip */
 }
 
+/* Infobox: Largura fixa maior e altura fixa ajustada */
 .info-box {
     display: none;
     position: absolute;
-    top: 200px; /* Ajuste para aparecer abaixo dos botões */
+    top: 180px;
+    /* Mantém a posição abaixo dos botões */
     left: 50%;
+    /* Centraliza horizontalmente */
     transform: translateX(-50%);
+    width: 50%;
+    /* Largura fixa maior */
+    height: auto;
     background-color: #D7D7D7;
     padding: 20px;
     border-radius: 10px;
+    /* Bordas arredondadas */
+    overflow-y: auto;
+    /* Barra de rolagem interna quando necessário */
     z-index: 1000;
+    /* Garante que fique acima de outros elementos */
 }
 
+/* Ativa a infobox */
 .info-box.active {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Torna visível e ajusta o layout do conteúdo */
+    flex-direction: column;
+    /* Garante que os elementos fiquem empilhados */
+    align-items: flex-start;
+    /* Alinha o conteúdo à esquerda */
 }
 
-.circle-btn-container.active + .info-boxes-container {
-    margin-top: 60px; /* Adiciona um espaço extra para evitar sobreposição */
+/* Texto interno da infobox */
+.info-box p,
+.info-box ul,
+.info-box li {
+    color: black;
+    /* Cor do texto */
+    text-align: left;
+    /* Texto alinhado à esquerda */
+    margin: 10px 0;
+    /* Espaçamento entre os elementos */
+    line-height: 1.6;
+    /* Altura da linha para maior legibilidade */
+}
+
+/* Margens para afastar o texto das bordas */
+.info-box p,
+.info-box ul {
+    margin-left: 15px;
+    /* Aumenta o afastamento à esquerda */
+    margin-right: 15px;
+    /* Aumenta o afastamento à direita */
+}
+
+
+.circle-btn-container.active+.info-boxes-container {
+    margin-top: 60px;
+    /* Adiciona um espaço extra para evitar sobreposição */
 }
 
 @media (max-width: 768px) {
     .info-box {
         top: 200px;
-        width: 90%; /* Adapta o tamanho da caixa para telas menores */
-       /* margin: 10px auto; Centraliza a caixa e adiciona espaçamento */
+        width: 90%;
+        /* Adapta o tamanho da caixa para telas menores */
+        /* margin: 10px auto; Centraliza a caixa e adiciona espaçamento */
     }
 
-    .circle-btn-container.active + .info-boxes-container {
-        margin-top: 20px; /* Garante espaço suficiente abaixo dos botões */
+    .circle-btn-container.active+.info-boxes-container {
+        margin-top: 20px;
+        /* Garante espaço suficiente abaixo dos botões */
     }
 }
 
 @media (max-width: 768px) {
     .circle-btn-container {
         display: grid;
-        gap: 5px; /* Espaçamento menor entre os botões */
-        grid-template-columns: repeat(5, 1fr); /* Define 5 colunas */
+        gap: 5px;
+        /* Espaçamento menor entre os botões */
+        grid-template-columns: repeat(5, 1fr);
+        /* Define 5 colunas */
         justify-content: center;
         align-items: center;
     }
 
     /* Primeira linha de botões */
     .circle-btn-container button:nth-child(1) {
-        grid-column: 2 / 3; /* Primeiro botão na segunda coluna */
+        grid-column: 2 / 3;
+        /* Primeiro botão na segunda coluna */
     }
 
     .circle-btn-container button:nth-child(2) {
-        grid-column: 3 / 4; /* Segundo botão na terceira coluna */
+        grid-column: 3 / 4;
+        /* Segundo botão na terceira coluna */
     }
 
     .circle-btn-container button:nth-child(3) {
-        grid-column: 4 / 5; /* Terceiro botão na quarta coluna */
+        grid-column: 4 / 5;
+        /* Terceiro botão na quarta coluna */
     }
 
     /* Segunda linha de botões */
     .circle-btn-container button:nth-child(4) {
-        grid-column: 2 / 4; /* Ocupa entre as colunas 2 e 3 */
-        grid-row: 2; /* Força o botão 4 a estar na segunda linha */
-        justify-self: center; /* Centraliza o botão dentro da grade */
+        grid-column: 2 / 4;
+        /* Ocupa entre as colunas 2 e 3 */
+        grid-row: 2;
+        /* Força o botão 4 a estar na segunda linha */
+        justify-self: center;
+        /* Centraliza o botão dentro da grade */
     }
-    
+
     .circle-btn-container button:nth-child(5) {
-        grid-column: 3 / 5; /* Ocupa entre as colunas 3 e 4 */
-        grid-row: 2; /* Força o botão 5 a estar na segunda linha */
-        justify-self: center; /* Centraliza o botão dentro da grade */
+        grid-column: 3 / 5;
+        /* Ocupa entre as colunas 3 e 4 */
+        grid-row: 2;
+        /* Força o botão 5 a estar na segunda linha */
+        justify-self: center;
+        /* Centraliza o botão dentro da grade */
     }
 }
 
 @media (max-width: 768px) {
+
     /* Tooltip do primeiro botão no estado ativo */
     .circle-btn-container.active .circle-btn:first-child .tooltip {
-        margin-left: 20px; /* Adiciona margem para afastar da borda esquerda */
+        margin-left: 20px;
+        /* Adiciona margem para afastar da borda esquerda */
     }
 
     /* Tooltip do último botão no estado ativo */
     .circle-btn-container.active .circle-btn:last-child .tooltip {
-        margin-right: 120px; /* Adiciona margem para afastar da borda direita */
+        margin-right: 120px;
+        /* Adiciona margem para afastar da borda direita */
     }
 }
 
-
 .circle-btn img.btn-image {
-    width: 80%; /* Ajusta o tamanho da imagem dentro do botão */
-    height: auto; /* Mantém a proporção da imagem */
-    display: block; /* Garante que a imagem se alinhe corretamente */
-    margin: 0 auto; /* Centraliza a imagem no botão */
-    pointer-events: none; /* Impede que o clique interaja com a imagem */
+    width: 80%;
+    /* Ajusta o tamanho da imagem dentro do botão */
+    height: auto;
+    /* Mantém a proporção da imagem */
+    display: block;
+    /* Garante que a imagem se alinhe corretamente */
+    margin: 0 auto;
+    /* Centraliza a imagem no botão */
+    pointer-events: none;
+    /* Impede que o clique interaja com a imagem */
 }
 
 /* Estilo do botão ativo */
 .circle-btn.active img.btn-image {
-    content: url('images/bolsa2.png'); /* Troca a imagem para a versão ativa */
+    content: url('images/bolsa2.png');
+    /* Troca a imagem para a versão ativa */
 }
 
 /* Aqui são definidas as imagens para os outros botões quando estão ativos */
@@ -598,64 +746,58 @@ body {
 
 
 
+/* Botão 1 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Container principal */
-.show-prep-container {
-    display: flex;
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: center;  /* Alinha verticalmente a lista e a imagem */
-    gap: 250px;  /* Aumenta o espaçamento entre a lista e a imagem */
-    margin: 40px auto;
-    padding: 0 5%; /* Mantém uma margem lateral menor */
-    flex-wrap: wrap;
-    width: 100%;
-    box-sizing: border-box;
-}
 
 /* Título */
 .text-container .title {
     text-align: left;
-    color: #D7D7D7;
+    color: black;
     font-size: 22px;
     font-weight: bold;
-    margin-bottom: 30px;
-    text-decoration: underline;
 }
 
-/* Lista */
 .checklist {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 colunas por padrão */
+    column-gap: 20px;
+    row-gap: 5px;
 }
 
 .checklist li {
-    margin-bottom: 15px;
     font-size: 18px;
 }
 
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .checklist {
+        grid-template-columns: 1fr;
+        /* 1 coluna em telas pequenas */
+        margin-left: 0;
+        /* Remove a margem lateral */
+        margin-right: 0;
+        /* Remove a margem lateral */
+    }
+
+    .checklist li {
+        font-size: 16px;
+        /* Opcional: reduz o tamanho da fonte em telas menores */
+        margin-left: 0;
+        /* Remove a margem lateral dos itens */
+        margin-right: 0;
+        /* Remove a margem lateral dos itens */
+    }
+}
+
+
+
+
 .checklist label {
-    color: #D7D7D7;
+    color: black;
     font-size: 18px;
     cursor: pointer;
     display: flex;
@@ -667,34 +809,18 @@ body {
     cursor: pointer;
 }
 
-.checklist input[type="checkbox"]:checked + label {
+
+.checklist input[type="checkbox"]:checked+label {
     text-decoration: line-through;
     color: #8D0801;
-}
-
-/* Imagem */
-.image-show-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: auto;
-    margin-top: 40px; /* Aumenta o espaço entre a lista e a imagem */
-    align-self: center;
-}
-
-.image-show-container .show-image {
-    width: 100%;
-    height: auto;
-    max-height: 180px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
     .show-prep-container {
         flex-direction: column;
-        align-items: center;  /* Centraliza em telas menores */
-        gap: 30px;  /* Aumenta o espaçamento entre lista e imagem */
+        align-items: center;
+        /* Centraliza em telas menores */
         padding: 0 10%;
     }
 
@@ -706,13 +832,5 @@ body {
     .checklist li {
         font-size: 16px;
         margin-bottom: 10px;
-    }
-
-    .image-show-container {
-        margin-top: 30px; /* Ajusta a margem superior em telas menores */
-    }
-
-    .image-show-container .show-image {
-        max-width: 150px;
     }
 }
