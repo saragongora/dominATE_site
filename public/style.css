@@ -573,6 +573,7 @@ body {
 
 /* Infobox: Largura fixa maior e altura fixa ajustada */
 .info-box {
+    color: black;
     display: none;
     position: absolute;
     top: 180px;
@@ -580,7 +581,7 @@ body {
     left: 50%;
     /* Centraliza horizontalmente */
     transform: translateX(-50%);
-    width: 50%;
+    width: 45%;
     /* Largura fixa maior */
     height: auto;
     background-color: #D7D7D7;
@@ -611,19 +612,10 @@ body {
     /* Cor do texto */
     text-align: left;
     /* Texto alinhado à esquerda */
-    margin: 10px 0;
+    margin: 4px 0;
     /* Espaçamento entre os elementos */
     line-height: 1.6;
     /* Altura da linha para maior legibilidade */
-}
-
-/* Margens para afastar o texto das bordas */
-.info-box p,
-.info-box ul {
-    margin-left: 15px;
-    /* Aumenta o afastamento à esquerda */
-    margin-right: 15px;
-    /* Aumenta o afastamento à direita */
 }
 
 
@@ -746,11 +738,9 @@ body {
 
 
 
-/* Botão 1 */
-
-
 /* Título */
 .text-container .title {
+    margin-bottom: 10px;
     text-align: left;
     color: black;
     font-size: 22px;
@@ -758,6 +748,7 @@ body {
 }
 
 .checklist {
+    color: black;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -769,6 +760,7 @@ body {
 }
 
 .checklist li {
+    color: black;
     font-size: 18px;
 }
 
@@ -793,9 +785,6 @@ body {
     }
 }
 
-
-
-
 .checklist label {
     color: black;
     font-size: 18px;
@@ -804,16 +793,22 @@ body {
     align-items: center;
 }
 
-.checklist input[type="checkbox"] {
-    margin-right: 10px;
-    cursor: pointer;
+.checklist li label {
+    color: black; /* Cor padrão para os textos */
+    text-decoration: none; /* Remove riscos por padrão */
+}
+
+.checklist input[type="checkbox"]:checked + label {
+    color: #8D0801; /* Cor quando o checkbox está marcado */
+    text-decoration: line-through; /* Adiciona o risco */
+}
+
+.checklist input[type="checkbox"]:not(:checked) + label {
+    color: black; /* Retorna à cor preta quando desmarcado */
+    text-decoration: none; /* Remove o risco */
 }
 
 
-.checklist input[type="checkbox"]:checked+label {
-    text-decoration: line-through;
-    color: #8D0801;
-}
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -834,3 +829,4 @@ body {
         margin-bottom: 10px;
     }
 }
+

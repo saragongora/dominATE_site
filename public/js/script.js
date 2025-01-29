@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (savedState === "checked") {
             checkbox.checked = true;
             checkbox.parentElement.style.textDecoration = "line-through";
-            checkbox.parentElement.style.color = "#8D0801";
+            checkbox.parentElement.style.color = "#000000";
         }
 
         // Adiciona o evento de mudança para salvar o estado e alterar o estilo
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 localStorage.removeItem(item);
                 checkbox.parentElement.style.textDecoration = "none";
-                checkbox.parentElement.style.color = "#D7D7D7";
+                checkbox.parentElement.style.color = "#000000";
             }
         });
     });
