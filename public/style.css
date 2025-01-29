@@ -830,3 +830,36 @@ body {
     }
 }
 
+/* Estilização do segundo Info Box */
+.forbidden-list {
+    list-style: none;
+    column-gap: 20px;
+    row-gap: 5px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas maiores */
+    
+}
+
+.forbidden-list li {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 16px;
+    color: black;
+}
+
+.forbidden-icon {
+    margin-right: 5px;
+    font-size: 18px; /* Tamanho do ícone */
+    color: black; /* Cor do ícone */
+}
+
+/* Responsividade: Apenas uma coluna em telas menores */
+@media (max-width: 768px) {
+    .forbidden-list {
+        grid-template-columns: 1fr; /* Apenas uma coluna no mobile */
+    }
+}
+
+
