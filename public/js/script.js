@@ -189,16 +189,87 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", function() {
     const buttonsContainer = document.querySelector(".buttons-container");
     const infoContent = document.querySelector(".info-content");
     const infoText = document.getElementById("info-text");
     const backButton = document.querySelector(".back-btn");
+    const valoresInfo = document.getElementById("valores-info");
+    const estadoSelect = document.getElementById("estado-select");
+    const valoresTabela = document.getElementById("valores-tabela").getElementsByTagName("tbody")[0];
 
+    // Esconde a seta ao carregar a página
+    backButton.classList.add("hidden");
+
+    const valoresRJ = [
+        ["Pista Premium", "R$ 920,00", "R$ 460,00"],
+        ["Pista", "R$ 590,00", "R$ 295,00"],
+        ["Cadeira Sul", "R$ 590,00", "R$ 295,00"],
+        ["Cadeira Inferior Leste", "R$ 750,00", "R$ 375,00"],
+        ["Cadeira Inferior Oeste", "R$ 750,00", "R$ 375,00"],
+        ["Cadeira Superior Oeste A", "R$ 440,00", "R$ 220,00"],
+        ["Cadeira Superior Oeste B", "R$ 440,00", "R$ 220,00"],
+        ["Soundcheck VIP Package*", "R$ 2581,00", "R$ 2.121,00"]
+    ];
+
+    const valoresSP = [
+        ["Pista Premium", "R$ 920,00", "R$ 460,00"],
+        ["Pista", "R$ 590,00", "R$ 295,00"],
+        ["Cadeira Inferior", "R$ 720,00", "R$ 360,00"],
+        ["Cadeira Superior", "R$ 750,00", "R$ 375,00"],
+        ["Arquibancada", "R$ 460,00", "R$ 230,00"],
+        ["Soundcheck VIP Package", "R$ 2.581,00", "R$ 2.121,00"]
+    ];
+
+    function atualizarTabela(estado) {
+        // Limpa a tabela antes de adicionar novos dados
+        valoresTabela.innerHTML = "";
+
+        let valores;
+        if (estado === "RJ") {
+            valores = valoresRJ;
+        } else if (estado === "SP") {
+            valores = valoresSP;
+        }
+
+        // Preenche a tabela com os dados do estado selecionado
+        valores.forEach((linha) => {
+            const tr = document.createElement("tr");
+            linha.forEach((coluna) => {
+                const td = document.createElement("td");
+                td.textContent = coluna;
+                tr.appendChild(td);
+            });
+            valoresTabela.appendChild(tr);
+        });
+    }
+
+    // Exibe a tabela ao clicar no botão "Valores"
+    document.querySelector("[data-info='valores']").addEventListener("click", function() {
+        infoText.innerHTML = ""; // Limpa qualquer texto anterior
+        valoresInfo.classList.remove("hidden"); // Exibe a tabela
+        buttonsContainer.classList.add("hidden");
+        infoContent.classList.remove("hidden");
+        backButton.classList.remove("hidden");
+
+        // Atualiza a tabela com o estado inicial selecionado
+        atualizarTabela(estadoSelect.value);
+    });
+
+    // Atualiza a tabela quando o usuário mudar o estado
+    estadoSelect.addEventListener("change", function() {
+        atualizarTabela(this.value);
+    });
+
+    // Outras funcionalidades dos botões
     const infoData = {
-        comprar: "Você pode comprar ingressos em diversos pontos físicos e online.",
-        valores: "Os valores variam de acordo com o tipo de ingresso e a data de compra.",
+        comprar: `Os ingressos oficiais podem ser adquiridos no site da 
+        <a href="https://www.ticketmaster.com.br/event/stray-kids" target="_blank" class="ticketmaster-link">TicketMaster</a> 
+        ou nas bilheteiras físicas:<br>
+        <ul>
+            <li><strong>Rio de Janeiro:</strong> Bilheteira Sul: Rua Arquias Cordeiro, s/n - Engenho de Dentro, Rio de Janeiro - RJ, CEP:25965825 – em frente à estação Engenho de Dentro.</li>
+            <li><strong>São Paulo:</strong> Avenida Ibirapuera, 3103, Indianópolis - São Paulo - SP, CEP:04029902 – Entrada pela Avenida Moaci, lateral do shopping.</li>
+        </ul>`,
         digital: "Seu ingresso digital será enviado por e-mail e pode ser apresentado na entrada.",
         cuidado: "Cuidado com sites falsos! Compre sempre em canais oficiais."
     };
@@ -206,20 +277,28 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".info-btn").forEach(button => {
         button.addEventListener("click", function() {
             const infoKey = this.getAttribute("data-info");
-            infoText.textContent = infoData[infoKey];
+            infoText.innerHTML = infoData[infoKey]; // Permite usar HTML formatado
 
-            // Esconder os botões e exibir o texto
+            // Esconder os botões e exibir o texto e a seta
             buttonsContainer.classList.add("hidden");
             infoContent.classList.remove("hidden");
+            backButton.classList.remove("hidden");
         });
     });
 
     // Voltar para os botões
     backButton.addEventListener("click", function() {
+        valoresInfo.classList.add("hidden"); // Esconde a tabela
         buttonsContainer.classList.remove("hidden");
         infoContent.classList.add("hidden");
+        infoText.innerHTML = ""; // Limpa o texto ao voltar
+        backButton.classList.add("hidden"); // Esconde a seta ao voltar
     });
 });
+
+
+
+
 
 
 

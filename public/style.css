@@ -956,6 +956,7 @@ body {
 
 /* Conteúdo que aparece ao clicar */
 .info-content {
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -977,5 +978,42 @@ body {
 
 .back-btn:hover {
     color: #8D0801;
+}
+
+#info-box-5 .back-btn {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    font-size: 38px;
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    #info-box-5 .buttons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Reduz o espaçamento entre os botões */
+        align-items: center; /* Centraliza os botões */
+    }
+
+    #info-box-5 .info-btn {
+        width: 100%; /* Faz os botões ocuparem toda a largura disponível */
+        max-width: 250px; /* Define um tamanho máximo para não ficarem exagerados */
+    }
+}
+
+@media (max-width: 768px) {
+    #info-box-5 .buttons-container.hidden {
+        display: none !important;
+    }
+
+    #info-box-5 .info-content {
+        display: flex;
+    }
+}
+
+.ticketmaster-link {
+    color: black; /* Garante que a cor permanece preta no hover */
+    text-decoration: underline; /* Adiciona sublinhado no hover, se preferir */
 }
 

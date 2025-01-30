@@ -125,29 +125,32 @@
                     <button class="faq-question">Qual o tamanho permitido de bolsa?</button>
                     <p class="faq-answer">O tamanho máximo permitido para bolsas é de 30cm x 20cm x 10cm.</p>
                 </div>
-        
+
                 <div class="faq-item">
                     <button class="faq-question">Quais alimentos posso levar?</button>
-                    <p class="faq-answer">Você pode levar alimentos industrializados lacrados, como biscoitos, barras de cereais e chocolates.</p>
+                    <p class="faq-answer">Você pode levar alimentos industrializados lacrados, como biscoitos, barras de
+                        cereais e chocolates.</p>
                 </div>
-        
+
                 <div class="faq-item">
                     <button class="faq-question">Qual documento levar para meia entrada?</button>
-                    <p class="faq-answer">É necessário apresentar um documento oficial com foto e a carteirinha de estudante válida.</p>
+                    <p class="faq-answer">É necessário apresentar um documento oficial com foto e a carteirinha de
+                        estudante válida.</p>
                 </div>
-        
+
                 <div class="faq-item">
                     <button class="faq-question">Qual o horário de entrada e início do show?</button>
                     <p class="faq-answer">Os portões abrem às 16h e o show começa às 20h.</p>
                 </div>
-        
+
                 <div class="faq-item">
                     <button class="faq-question">Como chegar ao local do show?</button>
-                    <p class="faq-answer">O local pode ser acessado por transporte público ou aplicativos de transporte. Consulte o site oficial para rotas detalhadas.</p>
+                    <p class="faq-answer">O local pode ser acessado por transporte público ou aplicativos de transporte.
+                        Consulte o site oficial para rotas detalhadas.</p>
                 </div>
             </div>
         </div>
-        
+
 
         <div id="info-box-5" class="info-box">
             <p class="title">SOBRE INGRESSOS</p>
@@ -157,16 +160,38 @@
                 <button class="info-btn" data-info="digital">Ingresso Digital</button>
                 <button class="info-btn" data-info="cuidado">Tome cuidado</button>
             </div>
-            
+        
             <div class="info-content hidden">
-                <button class="back-btn">←</button>
+                <button class="back-btn hidden">←</button>
                 <p id="info-text"></p>
+        
+                <!-- Tabela de Valores -->
+                <div id="valores-info" class="hidden">
+                    <select id="estado-select">
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="SP">São Paulo</option>
+                    </select>
+        
+                    <table id="valores-tabela">
+                        <thead>
+                            <tr>
+                                <th>Setor</th>
+                                <th>Inteira</th>
+                                <th>Meia entrada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Os dados serão preenchidos dinamicamente com JS -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-
         </div>
+        
     </div>
 
+
+    
     <footer class="footer">
         <p>
             Criado por <a href="https://www.linkedin.com/in/sara-gongora-a41aa221a" target="_blank">Sara</a>
