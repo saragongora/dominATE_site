@@ -172,8 +172,54 @@ function toggleInfo(index) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const faqButtons = document.querySelectorAll(".faq-question");
+
+    faqButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const answer = this.nextElementSibling;
+            const isVisible = answer.style.display === "block";
+
+            // Esconder todas as respostas
+            document.querySelectorAll(".faq-answer").forEach(item => item.style.display = "none");
+
+            // Mostrar ou ocultar a resposta clicada
+            answer.style.display = isVisible ? "none" : "block";
+        });
+    });
+});
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const buttonsContainer = document.querySelector(".buttons-container");
+    const infoContent = document.querySelector(".info-content");
+    const infoText = document.getElementById("info-text");
+    const backButton = document.querySelector(".back-btn");
+
+    const infoData = {
+        comprar: "Você pode comprar ingressos em diversos pontos físicos e online.",
+        valores: "Os valores variam de acordo com o tipo de ingresso e a data de compra.",
+        digital: "Seu ingresso digital será enviado por e-mail e pode ser apresentado na entrada.",
+        cuidado: "Cuidado com sites falsos! Compre sempre em canais oficiais."
+    };
+
+    document.querySelectorAll(".info-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            const infoKey = this.getAttribute("data-info");
+            infoText.textContent = infoData[infoKey];
+
+            // Esconder os botões e exibir o texto
+            buttonsContainer.classList.add("hidden");
+            infoContent.classList.remove("hidden");
+        });
+    });
+
+    // Voltar para os botões
+    backButton.addEventListener("click", function() {
+        buttonsContainer.classList.remove("hidden");
+        infoContent.classList.add("hidden");
+    });
+});
 
 
 

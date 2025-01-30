@@ -794,18 +794,24 @@ body {
 }
 
 .checklist li label {
-    color: black; /* Cor padrão para os textos */
-    text-decoration: none; /* Remove riscos por padrão */
+    color: black;
+    /* Cor padrão para os textos */
+    text-decoration: none;
+    /* Remove riscos por padrão */
 }
 
-.checklist input[type="checkbox"]:checked + label {
-    color: #8D0801; /* Cor quando o checkbox está marcado */
-    text-decoration: line-through; /* Adiciona o risco */
+.checklist input[type="checkbox"]:checked+label {
+    color: #8D0801;
+    /* Cor quando o checkbox está marcado */
+    text-decoration: line-through;
+    /* Adiciona o risco */
 }
 
-.checklist input[type="checkbox"]:not(:checked) + label {
-    color: black; /* Retorna à cor preta quando desmarcado */
-    text-decoration: none; /* Remove o risco */
+.checklist input[type="checkbox"]:not(:checked)+label {
+    color: black;
+    /* Retorna à cor preta quando desmarcado */
+    text-decoration: none;
+    /* Remove o risco */
 }
 
 
@@ -832,14 +838,18 @@ body {
 
 /* Estilização do segundo Info Box */
 .forbidden-list {
+
     list-style: none;
-    column-gap: 20px;
-    row-gap: 5px;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas em telas maiores */
-    
+    grid-template-columns: repeat(2, 1fr);
+    /* Duas colunas */
+    column-gap: 35px;
+    /* Mesmo espaçamento das colunas do checklist */
+    row-gap: 5px;
+    /* Mesmo espaçamento das linhas do checklist */
 }
+
 
 .forbidden-list li {
     display: flex;
@@ -849,17 +859,123 @@ body {
     color: black;
 }
 
-.forbidden-icon {
-    margin-right: 5px;
-    font-size: 18px; /* Tamanho do ícone */
-    color: black; /* Cor do ícone */
+.icon_proibido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px; /* Ajuste para espaçamento */
 }
+
+.icon_proibido img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+
 
 /* Responsividade: Apenas uma coluna em telas menores */
 @media (max-width: 768px) {
     .forbidden-list {
-        grid-template-columns: 1fr; /* Apenas uma coluna no mobile */
+        grid-template-columns: 1fr;
+        /* Apenas uma coluna no mobile */
     }
 }
 
+/* Estilo da FAQ */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #A51207;
+    padding-bottom: 5px;
+    min-width: 100%; /* Garante que a borda ocupe toda a largura */
+    width: 100%;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #A51207;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.faq-question:hover {
+    color: #8D0801;
+}
+
+.faq-answer {
+    display: none;
+    font-size: 16px;
+    color: black;
+    padding: 5px 0;
+}
+
+/* Estilização do Info Box */
+#info-box-5 {
+    text-align: center;
+    padding: 20px;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    
+}
+
+/* Layout dos botões */
+.buttons-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    justify-content: center;
+    
+}
+
+.info-btn {
+    padding: 15px 30px; /* Aumenta altura (vertical) e largura (horizontal) */
+    font-size: 18px; /* Texto um pouco maior */
+    background-color: #A51207;
+    color: #D7D7D7;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    min-width: 180px; /* Define um tamanho mínimo para largura */
+    min-height: 60px; /* Define um tamanho mínimo para altura */
+}
+
+
+.info-btn:hover {
+    background-color: #8D0801;
+}
+
+/* Conteúdo que aparece ao clicar */
+.info-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 38px;
+    color: #A51207;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    color: #8D0801;
+}
 
