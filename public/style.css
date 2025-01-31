@@ -1017,3 +1017,80 @@ body {
     text-decoration: underline; /* Adiciona sublinhado no hover, se preferir */
 }
 
+/* Estilização da Tabela de Valores */
+#valores-info {
+    margin-top: 0px;
+    width: 100%;
+    max-width: 600px; /* Define uma largura máxima */
+    text-align: center;
+}
+
+#estado-select {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #A51207;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #A51207;
+    cursor: pointer;
+    margin-top: 0px; /* Reduz o espaçamento acima */
+    margin-bottom: 15px; /* Pode reduzir ainda mais se necessário */
+
+}
+
+/* Estilização da Tabela */
+#valores-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho da Tabela */
+#valores-tabela thead {
+    background-color: #A51207;
+    color: #fff;
+}
+
+#valores-tabela th {
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Linhas da Tabela */
+#valores-tabela td {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Alternando cores nas linhas para melhor leitura */
+#valores-tabela tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover nas linhas */
+#valores-tabela tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    #valores-tabela th, #valores-tabela td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #estado-select {
+        width: 100%;
+    }
+}
+
+#valores-info title {
+    margin-bottom: 0px; /* Reduz a distância abaixo do título */
+}

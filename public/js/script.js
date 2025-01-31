@@ -172,11 +172,11 @@ function toggleInfo(index) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const faqButtons = document.querySelectorAll(".faq-question");
 
     faqButtons.forEach(button => {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             const answer = this.nextElementSibling;
             const isVisible = answer.style.display === "block";
 
@@ -187,9 +187,8 @@ document.addEventListener("DOMContentLoaded", function() {
             answer.style.display = isVisible ? "none" : "block";
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
+    // Elementos principais
     const buttonsContainer = document.querySelector(".buttons-container");
     const infoContent = document.querySelector(".info-content");
     const infoText = document.getElementById("info-text");
@@ -201,15 +200,16 @@ document.addEventListener("DOMContentLoaded", function() {
     // Esconde a seta ao carregar a página
     backButton.classList.add("hidden");
 
+    // Tabelas de valores por estado
     const valoresRJ = [
         ["Pista Premium", "R$ 920,00", "R$ 460,00"],
         ["Pista", "R$ 590,00", "R$ 295,00"],
         ["Cadeira Sul", "R$ 590,00", "R$ 295,00"],
         ["Cadeira Inferior Leste", "R$ 750,00", "R$ 375,00"],
         ["Cadeira Inferior Oeste", "R$ 750,00", "R$ 375,00"],
-        ["Cadeira Superior Oeste A", "R$ 440,00", "R$ 220,00"],
-        ["Cadeira Superior Oeste B", "R$ 440,00", "R$ 220,00"],
-        ["Soundcheck VIP Package*", "R$ 2581,00", "R$ 2.121,00"]
+        ["Cadeira Superior Leste", "R$ 440,00", "R$ 220,00"],
+        ["Cadeira Superior Oeste A e B", "R$ 440,00", "R$ 220,00"],
+        ["Soundcheck VIP Package", "R$ 2.581,00", "R$ 2.121,00"]
     ];
 
     const valoresSP = [
@@ -221,21 +221,15 @@ document.addEventListener("DOMContentLoaded", function() {
         ["Soundcheck VIP Package", "R$ 2.581,00", "R$ 2.121,00"]
     ];
 
+    // Função para atualizar a tabela de valores
     function atualizarTabela(estado) {
-        // Limpa a tabela antes de adicionar novos dados
-        valoresTabela.innerHTML = "";
+        valoresTabela.innerHTML = ""; // Limpa a tabela antes de adicionar novos dados
 
-        let valores;
-        if (estado === "RJ") {
-            valores = valoresRJ;
-        } else if (estado === "SP") {
-            valores = valoresSP;
-        }
+        const valores = estado === "RJ" ? valoresRJ : valoresSP;
 
-        // Preenche a tabela com os dados do estado selecionado
-        valores.forEach((linha) => {
+        valores.forEach(linha => {
             const tr = document.createElement("tr");
-            linha.forEach((coluna) => {
+            linha.forEach(coluna => {
                 const td = document.createElement("td");
                 td.textContent = coluna;
                 tr.appendChild(td);
@@ -245,9 +239,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Exibe a tabela ao clicar no botão "Valores"
-    document.querySelector("[data-info='valores']").addEventListener("click", function() {
-        infoText.innerHTML = ""; // Limpa qualquer texto anterior
-        valoresInfo.classList.remove("hidden"); // Exibe a tabela
+    document.querySelector("[data-info='valores']").addEventListener("click", function () {
+        infoText.innerHTML = ""; // Garante que "undefined" não apareça
+        valoresInfo.classList.remove("hidden"); // Mostra a tabela
         buttonsContainer.classList.add("hidden");
         infoContent.classList.remove("hidden");
         backButton.classList.remove("hidden");
@@ -256,12 +250,12 @@ document.addEventListener("DOMContentLoaded", function() {
         atualizarTabela(estadoSelect.value);
     });
 
-    // Atualiza a tabela quando o usuário mudar o estado
-    estadoSelect.addEventListener("change", function() {
+    // Atualiza a tabela quando o usuário muda o estado
+    estadoSelect.addEventListener("change", function () {
         atualizarTabela(this.value);
     });
 
-    // Outras funcionalidades dos botões
+    // Informações dos botões
     const infoData = {
         comprar: `Os ingressos oficiais podem ser adquiridos no site da 
         <a href="https://www.ticketmaster.com.br/event/stray-kids" target="_blank" class="ticketmaster-link">TicketMaster</a> 
@@ -270,32 +264,39 @@ document.addEventListener("DOMContentLoaded", function() {
             <li><strong>Rio de Janeiro:</strong> Bilheteira Sul: Rua Arquias Cordeiro, s/n - Engenho de Dentro, Rio de Janeiro - RJ, CEP:25965825 – em frente à estação Engenho de Dentro.</li>
             <li><strong>São Paulo:</strong> Avenida Ibirapuera, 3103, Indianópolis - São Paulo - SP, CEP:04029902 – Entrada pela Avenida Moaci, lateral do shopping.</li>
         </ul>`,
-        digital: "Seu ingresso digital será enviado por e-mail e pode ser apresentado na entrada.",
-        cuidado: "Cuidado com sites falsos! Compre sempre em canais oficiais."
+
+        digital: `Para os ingressos comprados online pelo site da TicketMaster, é necessário baixar o aplicativo Quentro em seu celular. 
+        Os ingressos digitais devem ser apresentados na entrada do evento, através do aplicativo.
+       Para mais informações, clique <a href="https://help.ticketmaster.com.br/hc/pt-br/articles/12683700693905-Ingresso-Digital-Quentro" target="_blank" class="ticketmaster-link">aqui</a>.`
+        ,
+        cuidado: "Cuidado ao comprar ingressos! Apenas a Ticketmaster e os pontos de venda oficiais garantem sua entrada no evento. A Ticketmaster não possui ferramenta de revenda e não autoriza a comercialização de ingressos fora dos canais oficiais. Fique atento para evitar golpes!"
     };
 
+    // Função para exibir informações ao clicar nos botões
     document.querySelectorAll(".info-btn").forEach(button => {
-        button.addEventListener("click", function() {
-            const infoKey = this.getAttribute("data-info");
-            infoText.innerHTML = infoData[infoKey]; // Permite usar HTML formatado
+        button.addEventListener("click", function () {
+            const infoKey = this.dataset.info;
 
-            // Esconder os botões e exibir o texto e a seta
+            if (infoKey === "valores") return; // O botão "Valores" já é tratado separadamente
+
+            infoText.innerHTML = infoData[infoKey] || "Informação não disponível."; // Evita undefined
+            valoresInfo.classList.add("hidden"); // Oculta a tabela se outra opção for escolhida
             buttonsContainer.classList.add("hidden");
             infoContent.classList.remove("hidden");
             backButton.classList.remove("hidden");
         });
     });
 
-    // Voltar para os botões
-    backButton.addEventListener("click", function() {
-        valoresInfo.classList.add("hidden"); // Esconde a tabela
-        buttonsContainer.classList.remove("hidden");
+    // Botão de voltar
+    backButton.addEventListener("click", function () {
+        infoText.innerHTML = ""; // Limpa o texto para evitar que fique visível ao voltar
+        valoresInfo.classList.add("hidden"); // Oculta a tabela, se necessário
         infoContent.classList.add("hidden");
-        infoText.innerHTML = ""; // Limpa o texto ao voltar
-        backButton.classList.add("hidden"); // Esconde a seta ao voltar
+        buttonsContainer.classList.remove("hidden");
+        backButton.classList.add("hidden");
     });
+    
 });
-
 
 
 
