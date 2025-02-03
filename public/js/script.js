@@ -165,6 +165,7 @@ function toggleInfo(index) {
 }
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
     const faqButtons = document.querySelectorAll(".faq-question");
 
