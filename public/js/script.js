@@ -88,8 +88,7 @@ function toggleLoadingText() {
     loadingText.textContent = phrases[currentPhraseIndex];
 }
 
-// Inicia a exibição ao carregar a página
-updateDisplay();
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -163,7 +162,6 @@ function toggleInfo(index) {
         buttonImage.src = activeImagePaths[index - 1]; // Aplica a imagem ativa
     }
 }
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
