@@ -23,6 +23,7 @@
             </ul>
         </div>
     </nav>
+
     <div class="image-container">
         <img src="images/logo.png" alt="" class="home-image">
     </div>
@@ -41,30 +42,24 @@
     <!-- Texto que alterna entre as frases -->
     <div id="loading-text" class="loading-text">Carregando...</div>
 
-    <div class="image-div">
-        <img src="images/div.png" alt="" class="div-image">
-        <span class="overlay-text">FALTAM</span>
-        <div class="countdown-container">
-            <div class="time-box">
-                <span id="days" class="time-value">00</span>
-                <span class="time-label">DIAS</span>
-            </div>
-            <div class="time-box">
-                <span id="hours" class="time-value">00</span>
-                <span class="time-label">HORAS</span>
-            </div>
-            <div class="time-box">
-                <span id="minutes" class="time-value">00</span>
-                <span class="time-label">MINUTOS</span>
-            </div>
-            <div class="time-box">
-                <span id="seconds" class="time-value">00</span>
-                <span class="time-label">SEGUNDOS</span>
-            </div>
 
+
+    <div class="image-div">
+        <!-- Imagem de fundo -->
+        <img src="images/div.png" alt="Imagem do evento" class="div-image">
+    
+        <!-- Container do contador -->
+        <div class="countdown-wrapper">
+            <p class="overlay-text">FALTAM</p>
+            <div class="countdown-container">
+                <iframe id="countdown-frame" class="countdown-frame" src="" loading="lazy" scrolling="no"></iframe>
+
+            </div>
+            <p class="overlay-text2">PARA O SHOW</p>
         </div>
-        <span class="overlay-text2">PARA O SHOW</span>
     </div>
+    
+
 
     <div class="container-maps-playlist">
         <div class="maps">
