@@ -41,7 +41,7 @@ function updateProgressBar() {
 }
 
 const rjMapURL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2608.2967269873852!2d-43.2948930908324!3d-22.89326993729833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997d070e398159%3A0x9e05df3c77e2e376!2sEst%C3%A1dio%20Ol%C3%ADmpico%20Nilton%20Santos!5e1!3m2!1spt-BR!2sbr!4v1736864702115!5m2!1spt-BR!2sbr";
-const spMapURL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.0928476205336!2d-46.722619690798744!3d-23.601002862957994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce56c31b1fe649%3A0x7d134f4dfc6618c2!2sMorumBIS%20-%20Est%C3%A1dio%20C%C3%ADcero%20Pompeu%20de%20Toledo!5e0!3m2!1spt-BR!2sbr!4v1737501630354!5m2!1spt-BR!2sbr";
+const spMapURL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2594.4929712932176!2d-46.722619690798744!3d-23.601002862957994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce56c31b1fe649%3A0x7d134f4dfc6618c2!2sMorumBIS%20-%20Est%C3%A1dio%20C%C3%ADcero%20Pompeu%20de%20Toledo!5e1!3m2!1spt-BR!2sbr!4v1738677131286!5m2!1spt-BR!2sbr";
 
 function updateDisplay() {
     clearInterval(progressBarInterval);

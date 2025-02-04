@@ -252,7 +252,7 @@ body {
     width: 100%; /* Faz o container ocupar toda a largura disponível */
     max-width: 350px; /* Ajuste conforme necessário */
     padding: 12px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.895);
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     display: flex;
