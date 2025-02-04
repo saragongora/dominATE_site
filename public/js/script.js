@@ -91,6 +91,9 @@ function toggleLoadingText() {
 
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = document.querySelectorAll(".checklist input[type='checkbox']");
     
@@ -290,12 +293,30 @@ document.addEventListener("DOMContentLoaded", function () {
     
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.getElementById("overlay");
+    const iconsBox = document.getElementById("iconsBox");
+    const iconsTrigger = document.getElementById("iconsTrigger");
+    const fecharBox = document.getElementById("fecharBox");
 
+    // Exibir a caixa e o overlay
+    iconsTrigger.addEventListener("click", function () {
+        overlay.style.display = "block";
+        iconsBox.style.display = "block";
+    });
 
+    // Fechar a caixa e o overlay ao clicar no "X"
+    fecharBox.addEventListener("click", function () {
+        overlay.style.display = "none";
+        iconsBox.style.display = "none";
+    });
 
-
-
-
+    // Fechar ao clicar no overlay
+    overlay.addEventListener("click", function () {
+        overlay.style.display = "none";
+        iconsBox.style.display = "none";
+    });
+});
 
 
 

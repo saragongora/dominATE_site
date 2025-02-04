@@ -12,7 +12,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #141414;
+    background-color: black;
     height: 100%;
 }
 
@@ -26,7 +26,7 @@ body {
 /* Navbar */
 .navbar {
     width: 100%;
-    background-color: #141414;
+    background-color: black;
     padding: 15px 50px;
     position: absolute;
     top: 0;
@@ -82,7 +82,7 @@ body {
         display: none;
         flex-direction: column;
         gap: 10px;
-        background-color: #141414;
+        background-color: black;
         position: absolute;
         top: 60px;
         right: 0;
@@ -103,7 +103,7 @@ body {
 .image-container {
     width: 100%;
     max-width: 600px;
-    margin: 100px auto 40px;
+    margin: 50px auto 40px;
     display: flex;
     justify-content: center;
     padding: 0 20px;
@@ -128,7 +128,7 @@ body {
     max-width: 800px;
     height: 30px;
     margin: 40px auto 10px;
-    background-color: #141414;
+    background-color: black;
     border-radius: 15px;
     overflow: hidden;
     border: 3px solid #D7D7D7;
@@ -166,7 +166,7 @@ body {
     padding: 10px 20px;
     border: 2px solid #D7D7D7;
     border-radius: 20px;
-    background-color: #141414;
+    background-color: black;
     color: white;
     font-weight: 500;
     font-size: 16px;
@@ -181,7 +181,7 @@ body {
 
 .nav-button.active {
     background-color: #D7D7D7;
-    color: #141414;
+    color: black;
     font-weight: bold;
 }
 
@@ -447,7 +447,7 @@ body {
 }
 
 .footer {
-    background-color: #141414;
+    background-color: black;
     color: #D7D7D7;
     text-align: center;
     font-size: 14px;
@@ -523,7 +523,7 @@ body {
     /* Centraliza horizontalmente */
     transform: translateX(-50%);
     /* Ajusta para o centro */
-    background-color: #141414;
+    background-color: black;
     padding: 10px 0;
     gap: 5px;
     /* Espaçamento ajustado entre os botões */
@@ -1129,4 +1129,97 @@ body {
 
 #valores-info title {
     margin-bottom: 0px; /* Reduz a distância abaixo do título */
+}
+
+
+
+
+
+.creditos {
+    cursor: pointer;
+    color: #d7d7d7;
+    font-weight: bold;
+    position: relative;
+}
+
+.creditos:hover {
+    text-decoration: underline;
+}
+
+/* Overlay escuro ao fundo */
+/* Overlay escuro que cobre toda a página */
+.overlay {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Largura total da tela */
+    height: 100vh; /* Altura total da tela */
+    background-color: rgba(0, 0, 0, 0.7); /* Cor de fundo escura */
+    z-index: 9999; /* Coloca o overlay sobre os outros elementos */
+}
+
+/* Caixa flutuante */
+.caixa-flutuante {
+    display: none; /* Inicialmente invisível */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10000; /* Garante que a caixa flutuante esteja acima do overlay */
+}
+
+
+
+.caixa-flutuante .titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.caixa-flutuante a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.caixa-flutuante a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de fechar */
+.caixa-flutuante button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.caixa-flutuante button:hover {
+    background-color: #cc0000;
+}
+
+/* Ícone de fechar (X) no canto superior direito */
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.fechar:hover {
+    color: #000; /* Fica mais escuro ao passar o mouse */
 }
