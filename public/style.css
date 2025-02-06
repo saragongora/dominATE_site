@@ -262,7 +262,6 @@ body {
 }
 
 
-
 /* Iframe do contador */
 .countdown-frame {
     width: 100%;
@@ -271,8 +270,6 @@ body {
     display: block; /* Remove qualquer comportamento inline estranho */
     margin: 0 auto; /* Garante que o iframe fique centralizado */
 }
-
-
 
 /* Responsividade */
 @media (max-width: 768px) {
