@@ -88,12 +88,6 @@ function toggleLoadingText() {
     loadingText.textContent = phrases[currentPhraseIndex];
 }
 
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
     const checkboxes = document.querySelectorAll(".checklist input[type='checkbox']");
     
@@ -165,7 +159,6 @@ function toggleInfo(index) {
         buttonImage.src = activeImagePaths[index - 1]; // Aplica a imagem ativa
     }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const faqButtons = document.querySelectorAll(".faq-question");
@@ -317,10 +310,6 @@ document.addEventListener("DOMContentLoaded", function () {
         iconsBox.style.display = "none";
     });
 });
-
-
-
-
 
 let loadingTextInterval = setInterval(toggleLoadingText, 2500);
 

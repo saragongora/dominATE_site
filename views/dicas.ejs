@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DominATE Tour Brasil - Dicas</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <nav class="navbar">
+    <nav class="navbar" role="navigation">
         <div class="nav-container">
             <button class="menu-toggle" aria-label="Abrir menu">
                 &#9776; <!-- Ícone de hambúrguer -->
@@ -45,9 +46,6 @@
             <span class="tooltip">Como comprar ingressos</span>
         </button>
     </div>
-
-
-
 
     <div class="info-boxes-container">
         <div id="info-box-1" class="info-box">
@@ -122,18 +120,21 @@
 
                 <div class="faq-item">
                     <button class="faq-question">Quais alimentos posso levar?</button>
-                    <p class="faq-answer">Você pode levar alimentos industrializados lacrados e em pouca quantidade, como biscoitos, barras de
+                    <p class="faq-answer">Você pode levar alimentos industrializados lacrados e em pouca quantidade,
+                        como biscoitos, barras de
                         cereais e chocolates.</p>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">Qual documento levar para meia entrada?</button>
                     <p class="faq-answer">
-                        É necessário apresentar um documento oficial com foto e a carteirinha de estudante válida, que pode ser adquirida 
-                        <a href="https://www.une.org.br/lp/carteira-de-estudante-oficial/" target="_blank" rel="noopener noreferrer" class="ticketmaster-link">aqui</a>.
+                        É necessário apresentar um documento oficial com foto e a carteirinha de estudante válida, que
+                        pode ser adquirida
+                        <a href="https://www.une.org.br/lp/carteira-de-estudante-oficial/" target="_blank"
+                            rel="noopener noreferrer" class="ticketmaster-link">aqui</a>.
                     </p>
                 </div>
-                
+
 
                 <div class="faq-item">
                     <button class="faq-question">Qual o horário de entrada e início do show?</button>
@@ -151,18 +152,18 @@
                 <button class="info-btn" data-info="digital">Ingresso Digital</button>
                 <button class="info-btn" data-info="cuidado">Tome cuidado</button>
             </div>
-        
+
             <div class="info-content hidden">
                 <button class="back-btn hidden">←</button>
                 <p id="info-text"></p>
-        
+
                 <!-- Tabela de Valores -->
                 <div id="valores-info" class="hidden">
                     <select id="estado-select">
                         <option value="RJ">Rio de Janeiro</option>
                         <option value="SP">São Paulo</option>
                     </select>
-        
+
                     <table id="valores-tabela">
                         <thead>
                             <tr>
@@ -178,21 +179,18 @@
                 </div>
             </div>
         </div>
-        
     </div>
 
-
-    
     <footer class="footer">
         <p>
-            Criado por <a href="https://www.linkedin.com/in/sara-gongora-a41aa221a" target="_blank">Sara</a> | 
+            Criado por <a href="https://www.linkedin.com/in/sara-gongora-a41aa221a" target="_blank">Sara</a> |
             <span class="creditos" id="iconsTrigger">Icons</span>
         </p>
     </footer>
-    
+
     <!-- Overlay escuro -->
     <div id="overlay" class="overlay"></div>
-    
+
     <div id="iconsBox" class="caixa-flutuante">
         <span id="fecharBox" class="fechar">&times;</span> <!-- Ícone de fechar -->
         <p class="titulo">ícones feitos por: </p>
@@ -201,10 +199,9 @@
         <a href="https://www.flaticon.com/authors/smashingstocks" target="_blank">Smashingstocks</a>
         <a href="https://www.flaticon.com/authors/becris" target="_blank">Becris</a>
     </div>
-    
-    
 
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js" defer></script>
+
 </body>
 
 </html>
