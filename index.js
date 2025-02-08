@@ -20,10 +20,13 @@ app.get('/dicas', (req, res) => {
     res.render('dicas'); // Renderiza o arquivo dicas.ejs
 });
 
-// Inicia o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost:${port}`);
-});
+// Remova esta linha
+// app.listen(port, () => {
+//   console.log(`Servidor rodando em http://localhost:${port}`);
+// });
+
+module.exports = app; // Exporta a aplicação para a Vercel poder gerenciar a escuta
+
 
 app.use((req, res) => {
     res.status(404).render('404'); // Certifique-se de ter um arquivo views/404.ejs
