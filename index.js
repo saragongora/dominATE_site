@@ -32,5 +32,4 @@ app.use((req, res) => {
     res.status(404).render('404'); // Certifique-se de ter um arquivo views/404.ejs
 });
 
-
-
+import { Analytics } from "@vercel/analytics/react"
