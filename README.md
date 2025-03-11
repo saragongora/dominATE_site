@@ -1,2 +1,1 @@
-Site - DominatATE Tour Brasil
-Link: https://www.dominatetourbrasil.site/
+https://www.dominatetourbrasil.site/
